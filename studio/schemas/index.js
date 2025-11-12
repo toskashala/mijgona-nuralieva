@@ -1,8 +1,6 @@
-import hero from './hero'
-import about from './about'
-import project from './project'
-import contact from './contact'
+import hero from './hero';
+import about from './about';
+import experience from './experience';
+import service from './service';
 
-export const schema = {
-  types: [hero, about, project, contact],
-}
+export const schemaTypes = [hero, about, experience, service];

@@ -1,18 +1,31 @@
-import {defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure'
-import {visionTool} from '@sanity/vision'
-import {schema} from './schemas'
+import { defineConfig } from 'sanity'
+import { deskTool } from 'sanity/desk'
+import { visionTool } from '@sanity/vision'
+
+import { schemaTypes } from './schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'portfolio',
-
+  title: 'Portfolio Studio',
   projectId: 'tt2ed1zq',
   dataset: 'production',
-
-  plugins: [structureTool(), visionTool()],
-
+  plugins: [
+    deskTool({
+      // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
+      defaultDocumentNode: (S, { schemaType }) => {
+        // Only show preview for certain schema types
+        if (['project'].includes(schemaType)) {
+          return S.document().views([
+            S.view.form(),
+            S.view.component(() => React.createElement('div', null, 'Preview')).title('Preview'),
+          ])
+        }
+        return null
+      },
+    }),
+    visionTool(),
+  ],
   schema: {
-    types: schema,
+    types: schemaTypes,
   },
 })
