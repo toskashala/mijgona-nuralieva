@@ -31,8 +31,7 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased text-gray-900 bg-gradient-to-br from-white via-blue-50 to-purple-100 min-h-screen`}>
-        <Navbar />
+<body className={`${inter.variable} font-sans antialiased text-gray-900 bg-gradient-to-br from-white via-neutral-100 to-neutral-300 min-h-screen`}>        <Navbar />
         <main className="flex-grow">
           {children}
         </main>

@@ -9,16 +9,6 @@ export default function Hero({ firstName, lastName, headline, tagline, ctaButton
       id="home"
       className="relative w-full min-h-screen flex flex-col justify-center items-center text-center px-4 py-32 overflow-hidden"
     >
-      {/* Abstract Background Shapes */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.3 }}
-        transition={{ duration: 1.5 }}
-        className="absolute inset-0 -z-10"
-      >
-        <div className="absolute -top-20 -left-20 w-72 h-72 bg-blue-500/20 blur-3xl rounded-full"></div>
-        <div className="absolute top-40 right-0 w-96 h-96 bg-purple-500/20 blur-3xl rounded-full"></div>
-      </motion.div>
 
       <div className="relative z-10 max-w-6xl mx-auto w-full px-4">
         <div className="mb-8">
@@ -39,8 +29,7 @@ export default function Hero({ firstName, lastName, headline, tagline, ctaButton
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent drop-shadow-2xl uppercase scale-105"
-            >
+className="block bg-neutral-700 bg-clip-text text-transparent drop-shadow-2xl uppercase scale-105"            >
               {lastName}
             </motion.span>
           </h1>
@@ -111,7 +100,8 @@ export default function Hero({ firstName, lastName, headline, tagline, ctaButton
       {/* Custom CSS for Outlined First Name */}
       <style>{`
         .text-outline {
-          -webkit-text-stroke: 2px #4f46e5;
+          -webkit-text-stroke: 2px #374151
+;
           color: transparent;
         }
       `}</style>
