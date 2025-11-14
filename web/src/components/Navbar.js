@@ -23,14 +23,13 @@ export default function Navbar() {
   const navItems = [
     { name: 'About', href: '#about' },
     { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
 
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-white'
+        scrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-transparent'
       }`}
     >
       <nav className="container mx-auto px-4 py-4 md:py-5 flex justify-between items-center">
@@ -73,7 +72,7 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100">
+        <div className="md:hidden bg-white/90 backdrop-blur-md border-t border-gray-100">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             {navItems.map((item) => (
               <Link

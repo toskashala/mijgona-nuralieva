@@ -31,12 +31,12 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-20">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
           Get In Touch
         </h2>
-        <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+        <div className="max-w-2xl mx-auto bg-white/80 backdrop-blur-sm rounded-xl shadow-md overflow-hidden">
           <div className="p-8">
             <h3 className="text-2xl font-semibold text-gray-900 mb-6">
               Let&apos;s work together

@@ -3,7 +3,7 @@
 export default function Services({ services = [] }) {
 
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section id="services" className="py-20">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
           Services I Offer
@@ -13,7 +13,7 @@ export default function Services({ services = [] }) {
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="flex flex-col h-full">
+            <div key={index} className="flex flex-col h-full bg-white/80 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-md transition-shadow">
               <div className="p-6 flex-grow">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
@@ -24,7 +24,7 @@ export default function Services({ services = [] }) {
                   {service.features.map((feature, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium"
+                      className="px-3 py-1 bg-blue-50/70 hover:bg-blue-100/80 text-blue-700 rounded-full text-xs font-medium transition-colors"
                     >
                       {feature}
                     </span>

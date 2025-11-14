@@ -2,10 +2,10 @@
 
 import Image from 'next/image';
 
-export default function About({ title = 'About Me', subtitle = 'Marketing & Product Professional', description1 = "I'm a results-driven B2B Marketing and Product Management professional with a passion for creating impactful digital experiences.", description2 = 'My approach combines data-driven decision making with creative problem solving to deliver measurable results. I specialize in developing go-to-market strategies, optimizing user journeys, and driving product adoption through targeted marketing initiatives.', skills = [], profileImage = '/profile.jpg' }) {
+export default function About({ title, subtitle, description1, description2, skills = [], profileImage }) {
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
           {title}

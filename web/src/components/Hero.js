@@ -1,51 +1,95 @@
 'use client';
 
 import { FiArrowRight, FiDownload } from 'react-icons/fi';
+import { motion } from 'framer-motion';
 
-export default function Hero({ firstName = 'Mijgona', lastName = 'Nuralieva', headline = 'B2B Marketing & Product Management Professional', tagline = 'Helping businesses grow through strategic marketing and exceptional user experiences.', ctaButton = { text: 'Get in Touch', url: '#contact' } }) {
+export default function Hero({ firstName, lastName, headline, tagline, ctaButton }) {
   return (
-    <section id="home" className="relative w-full min-h-screen flex flex-col justify-center items-center text-center px-4 py-20 md:py-32 overflow-hidden bg-gradient-to-b from-blue-50 to-white">
-      <div className="absolute inset-0 w-full h-full z-0 opacity-20">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10"></div>
-      </div>
+    <section
+      id="home"
+      className="relative w-full min-h-screen flex flex-col justify-center items-center text-center px-4 py-32 overflow-hidden"
+    >
+      {/* Abstract Background Shapes */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.3 }}
+        transition={{ duration: 1.5 }}
+        className="absolute inset-0 -z-10"
+      >
+        <div className="absolute -top-20 -left-20 w-72 h-72 bg-blue-500/20 blur-3xl rounded-full"></div>
+        <div className="absolute top-40 right-0 w-96 h-96 bg-purple-500/20 blur-3xl rounded-full"></div>
+      </motion.div>
 
       <div className="relative z-10 max-w-6xl mx-auto w-full px-4">
         <div className="mb-8">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6">
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+          {/* Modern Name Styling */}
+          <h1 className="text-7xl md:text-9xl lg:text-[12rem] font-extrabold mb-8 leading-[0.9] uppercase tracking-tight">
+            {/* Outlined First Name */}
+            <motion.span
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6 }}
+              className="block text-transparent stroke-text text-outline uppercase drop-shadow-2xl"
+            >
               {firstName}
-            </span>
-            <span className="block text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 mt-2">
+            </motion.span>
+
+            {/* Full-color Surname with creative gradient */}
+            <motion.span
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent drop-shadow-2xl uppercase scale-105"
+            >
               {lastName}
-            </span>
+            </motion.span>
           </h1>
-          <h2 className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
+
+          <motion.h2
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="text-xl md:text-2xl text-gray-700 mb-6 max-w-2xl mx-auto"
+          >
             {headline}
-          </h2>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto"
+          >
             {tagline}
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="flex flex-col sm:flex-row justify-center gap-4 mt-8"
+          >
             <a
               href={ctaButton.url || '#contact'}
-              className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+              className="px-7 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-2xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
             >
               {ctaButton.text || 'Get in Touch'}
               <FiArrowRight className="w-5 h-5" />
             </a>
+
             <a
               href="/resume.pdf"
               download
-              className="px-6 py-3 border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-center gap-2"
+              className="px-7 py-3 border-2 border-gray-400 text-gray-700 font-medium rounded-2xl hover:bg-gray-100 transition-all flex items-center justify-center gap-2"
             >
               Download CV
               <FiDownload className="w-5 h-5" />
             </a>
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center">
+      <div className="absolute bottom-10 left-0 right-0 flex justify-center">
         <a
           href="#about"
           className="flex flex-col items-center text-gray-600 hover:text-blue-600 transition-colors"
@@ -59,15 +103,18 @@ export default function Hero({ firstName = 'Mijgona', lastName = 'Nuralieva', he
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </a>
       </div>
+
+      {/* Custom CSS for Outlined First Name */}
+      <style>{`
+        .text-outline {
+          -webkit-text-stroke: 2px #4f46e5;
+          color: transparent;
+        }
+      `}</style>
     </section>
   );
 }

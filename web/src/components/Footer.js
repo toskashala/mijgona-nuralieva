@@ -30,7 +30,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gray-50 border-t border-gray-100">
+    <footer className="border-t border-gray-200/50 backdrop-blur-sm">
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="md:col-span-4">
@@ -88,15 +88,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-500">
+        <div className="border-t border-gray-200/30 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-sm text-gray-600">
             &copy; {currentYear} Mijgona Nuralieva. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="/privacy" className="text-sm text-gray-500 hover:text-blue-600 transition-colors duration-200">
+            <Link href="/privacy" className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-sm text-gray-500 hover:text-blue-600 transition-colors duration-200">
+            <Link href="/terms" className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200">
               Terms of Service
             </Link>
           </div>
