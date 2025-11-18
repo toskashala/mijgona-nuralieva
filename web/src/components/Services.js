@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 export default function Services({ services = [] }) {
   const serviceRefs = useRef([]);
@@ -22,7 +22,7 @@ export default function Services({ services = [] }) {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     serviceRefs.current.forEach((ref) => ref && observer.observe(ref));
@@ -32,7 +32,6 @@ export default function Services({ services = [] }) {
   return (
     <section id="services" className="relative overflow-hidden pt-0 pb-28">
       <div className="max-w-6xl mx-auto px-4 relative">
-
         {/* Services grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {services.map((service, index) => (
@@ -43,7 +42,7 @@ export default function Services({ services = [] }) {
               className={`
                 relative flex flex-col h-full bg-white rounded-2xl shadow-lg border border-neutral-300 overflow-hidden
                 transition-transform duration-700 ease-out opacity-0
-                ${visible[index] ? 'translate-x-0 opacity-100' : index % 2 === 0 ? '-translate-x-24' : 'translate-x-24'}
+                ${visible[index] ? "translate-x-0 opacity-100" : index % 2 === 0 ? "-translate-x-24" : "translate-x-24"}
                 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/30 hover:border-white
               `}
             >
@@ -52,7 +51,9 @@ export default function Services({ services = [] }) {
 
               {/* Service content */}
               <div className="p-6 flex-grow">
-                <h3 className="text-2xl font-semibold text-neutral-900 mb-3">{service.title}</h3>
+                <h3 className="text-2xl font-semibold text-neutral-900 mb-3">
+                  {service.title}
+                </h3>
                 <p className="text-neutral-700 mb-4">{service.description}</p>
               </div>
 
@@ -79,12 +80,20 @@ export default function Services({ services = [] }) {
 
       <style jsx>{`
         @keyframes gradient-x {
-          0% { background-position: 0% }
-          100% { background-position: 200% }
+          0% {
+            background-position: 0%;
+          }
+          100% {
+            background-position: 200%;
+          }
         }
         @keyframes gradient-fast {
-          0% { background-position: 0% }
-          100% { background-position: 250% }
+          0% {
+            background-position: 0%;
+          }
+          100% {
+            background-position: 250%;
+          }
         }
         .animate-gradient-x {
           background-size: 200% auto;

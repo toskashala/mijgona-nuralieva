@@ -11,7 +11,8 @@ const inter = Inter({
 
 export const metadata = {
   title: "Mijgona Nuralieva | B2B Marketing & Product Management",
-  description: "Portfolio of Mijgona Nuralieva - B2B Marketing Specialist, Product Manager, and Digital Strategist",
+  description:
+    "Portfolio of Mijgona Nuralieva - B2B Marketing Specialist, Product Manager, and Digital Strategist",
   themeColor: "#ffffff",
   viewport: "width=device-width, initial-scale=1",
   icons: {
@@ -31,10 +32,12 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
         />
       </head>
-<body className={`${inter.variable} font-sans antialiased text-gray-900 bg-gradient-to-br from-white via-neutral-100 to-neutral-300 min-h-screen`}>        <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
+      <body
+        className={`${inter.variable} font-sans antialiased text-gray-900 bg-gradient-to-br from-white via-neutral-100 to-neutral-300 min-h-screen`}
+      >
+        {" "}
+        <Navbar />
+        <main className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>

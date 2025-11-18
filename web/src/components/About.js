@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function About({
   title,
@@ -8,12 +8,11 @@ export default function About({
   description1,
   description2,
   skills = [],
-  profileImage
+  profileImage,
 }) {
   return (
     <section id="about" className="py-24 bg-neutral-700">
       <div className="max-w-6xl mx-auto px-4">
-
         {/* Title with left accent rail */}
         <div className="flex items-center gap-4 mb-16">
           <div className="h-8 w-1.5 bg-white rounded-full"></div>
@@ -23,7 +22,6 @@ export default function About({
         </div>
 
         <div className="grid md:grid-cols-2 gap-16 items-start">
-
           {/* LEFT SIDE — TEXT */}
           <div>
             <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6">
@@ -56,7 +54,6 @@ export default function About({
           {/* RIGHT SIDE — IMAGE CARD */}
           <div className="relative group">
             <div className="rounded-2xl overflow-hidden shadow-2xl border border-neutral-600">
-
               {/* subtle futuristic stripe */}
               <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/0 via-white/10 to-transparent transform skew-y-6"></div>
@@ -71,10 +68,8 @@ export default function About({
                   priority
                 />
               </div>
-
             </div>
           </div>
-
         </div>
       </div>
     </section>

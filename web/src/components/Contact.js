@@ -1,33 +1,33 @@
-'use client';
+"use client";
 
-import { FiMail, FiLinkedin, FiTwitter, FiGithub } from 'react-icons/fi';
+import { FiMail, FiLinkedin, FiTwitter, FiGithub } from "react-icons/fi";
 
 export default function Contact() {
   const socialLinks = [
     {
       icon: <FiMail className="w-5 h-5" />,
-      url: 'mailto:hello@example.com',
-      label: 'Email',
-      text: 'hello@example.com'
+      url: "mailto:hello@example.com",
+      label: "Email",
+      text: "hello@example.com",
     },
     {
       icon: <FiLinkedin className="w-5 h-5" />,
-      url: 'https://linkedin.com',
-      label: 'LinkedIn',
-      text: 'linkedin.com/in/yourprofile'
+      url: "https://linkedin.com",
+      label: "LinkedIn",
+      text: "linkedin.com/in/yourprofile",
     },
     {
       icon: <FiTwitter className="w-5 h-5" />,
-      url: 'https://twitter.com',
-      label: 'Twitter',
-      text: '@yourhandle'
+      url: "https://twitter.com",
+      label: "Twitter",
+      text: "@yourhandle",
     },
     {
       icon: <FiGithub className="w-5 h-5" />,
-      url: 'https://github.com',
-      label: 'GitHub',
-      text: 'github.com/yourusername'
-    }
+      url: "https://github.com",
+      label: "GitHub",
+      text: "github.com/yourusername",
+    },
   ];
 
   return (
@@ -42,9 +42,10 @@ export default function Contact() {
               Let&apos;s work together
             </h3>
             <p className="text-gray-600 mb-8">
-              I&apos;m always open to discussing new projects, creative ideas or opportunities to be part of your visions.
+              I&apos;m always open to discussing new projects, creative ideas or
+              opportunities to be part of your visions.
             </p>
-            
+
             <div className="space-y-4">
               {socialLinks.map((item, index) => (
                 <a
@@ -64,14 +65,17 @@ export default function Contact() {
                 </a>
               ))}
             </div>
-            
+
             <div className="mt-12 pt-8 border-t border-gray-200">
               <p className="text-center text-gray-500 text-sm">
                 Or send me a message using the form below
               </p>
               <form className="mt-6 space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Name
                   </label>
                   <input
@@ -83,7 +87,10 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Email
                   </label>
                   <input
@@ -95,7 +102,10 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Message
                   </label>
                   <textarea

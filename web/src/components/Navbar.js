@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { FiMenu, FiX } from "react-icons/fi";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,22 +24,24 @@ export default function Navbar() {
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
   const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Contact', href: '#contact' },
+    { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ${scrolled ? 'backdrop-blur-xl bg-black/10' : ''} ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ${scrolled ? "backdrop-blur-xl bg-black/10" : ""} ${showNavbar ? "translate-y-0" : "-translate-y-full"}`}
+    >
       <nav className="container mx-auto px-6 py-4 flex justify-center items-center">
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-12">
-          {navItems.map(item => (
+          {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
@@ -70,7 +72,7 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-white/90 backdrop-blur-lg">
           <div className="container mx-auto px-6 py-4 flex flex-col space-y-4">
-            {navItems.map(item => (
+            {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}

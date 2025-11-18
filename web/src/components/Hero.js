@@ -1,13 +1,20 @@
-'use client';
+"use client";
 
-import { FiArrowRight, FiDownload } from 'react-icons/fi';
-import { motion } from 'framer-motion';
+import { FiArrowRight, FiDownload } from "react-icons/fi";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
-export default function Hero({ firstName, lastName, headline, ctaButton }) {
+export default function Hero({
+  firstName,
+  lastName,
+  headline,
+  tagline,
+  ctaButton,
+}) {
   return (
     <section
       id="home"
-      className="relative w-full flex flex-col justify-center items-center text-center px-4 py-32 overflow-hidden"
+      className="relative w-full min-h-screen flex flex-col justify-center items-center text-center px-4 py-32 overflow-hidden"
     >
       <div className="relative z-10 max-w-6xl mx-auto w-full px-4">
         {/* Hero Name & Headline */}
@@ -30,64 +37,65 @@ export default function Hero({ firstName, lastName, headline, ctaButton }) {
           </motion.span>
         </h1>
 
-        <motion.p
+        <motion.h2
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto"
+          className="text-xl md:text-2xl text-gray-700 mb-6 max-w-2xl mx-auto"
         >
           {headline}
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto"
+        >
+          {tagline}
         </motion.p>
       </div>
 
-      {/* Smaller Corner Triangles */}
-      <a
-        href={ctaButton.url || '#contact'}
-        className="absolute bottom-0 left-0 w-40 h-40 hover:scale-110 transition-transform z-0"
-        style={{
-          clipPath: 'polygon(0 100%, 100% 100%, 0 0)',
-          background: 'linear-gradient(135deg, #4f46e5, #3b82f6)',
-        }}
-      >
-        <div className="flex items-end justify-start w-full h-full p-4 text-white font-bold text-lg">
-          <FiArrowRight className="mr-2" /> Contact
-        </div>
-      </a>
-
-      <a
-        href="/resume.pdf"
-        download
-        className="absolute bottom-0 right-0 w-40 h-40 hover:scale-110 transition-transform z-0"
-        style={{
-          clipPath: 'polygon(100% 100%, 100% 0, 0 100%)',
-          background: 'linear-gradient(135deg, #ec4899, #f43f5e)',
-        }}
-      >
-        <div className="flex items-end justify-end w-full h-full p-4 text-white font-bold text-lg">
-          <FiDownload className="mr-2" /> CV
-        </div>
-      </a>
-
-      {/* Scroll Down Indicator */}
-      <div className="absolute bottom-10 left-0 right-0 flex justify-center z-10">
+      {/* Full-width bottom CTA buttons */}
+      <div className="absolute bottom-0 left-0 w-full flex">
+        {/* Filled button */}
         <a
-          href="#services"
-          className="flex flex-col items-center text-gray-200 hover:text-white transition-colors"
-          aria-label="Scroll down"
+          href={ctaButton.url || "#contact"}
+          className="w-1/2 bg-neutral-700 hover:bg-neutral-900 transition-colors 
+               text-white font-bold py-6 flex items-center justify-center gap-3 
+               border-r-0"
         >
-          <span className="text-sm mb-2 uppercase tracking-wide text-white/70 hover:text-white transition-colors">
-            Scroll Down
-          </span>
-          <div className="relative w-1 h-12 flex justify-center">
-            <span className="absolute w-1 h-full bg-gradient-to-b from-blue-400 via-purple-400 to-pink-400 rounded-full opacity-30"></span>
-            <motion.span
-              animate={{ y: [0, 24, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-              className="block w-3 h-3 bg-white rounded-full shadow-lg"
-            />
-          </div>
+          <FiArrowRight className="w-6 h-6" />
+          Contact Me
+        </a>
+
+        {/* Outlined button */}
+        <a
+          href="/resume.pdf"
+          download
+          className="w-1/2 border border-neutral-700 border-r-0 
+               hover:bg-neutral-700/30 transition-colors 
+               text-neutral-700 font-bold py-6 
+               flex items-center justify-center gap-3"
+        >
+          <FiDownload className="w-6 h-6" />
+          Download CV
         </a>
       </div>
+      {/* Right-side Curly GIF Scroll Indicator */}
+      <a
+        href="#services"
+        aria-label="Scroll down"
+        className="absolute right-6 top-1/2 -translate-y-1/2 z-40 cursor-pointer"
+      >
+        <Image
+          src="/icons8-curly-arrow-100.png"
+          width={50}
+          height={50}
+          alt="Scroll down indicator"
+          className="scroll-down w-14 h-14 opacity-90 hover:opacity-100 transition-opacity"
+        />
+      </a>
 
       {/* Outlined Name CSS */}
       <style>{`
