@@ -46,17 +46,11 @@ export default function Home() {
           const heroData = await client.fetch(heroQuery);
           console.log('Hero data:', heroData);
           
-          console.log('Fetching about data...');
           const aboutData = await client.fetch(aboutQuery);
-          console.log('About data:', aboutData);
           
-          console.log('Fetching experiences data...');
           const experiencesData = await client.fetch(experiencesQuery);
-          console.log('Experiences data:', experiencesData);
           
-          console.log('Fetching services data...');
           const servicesData = await client.fetch(servicesQuery);
-          console.log('Services data:', servicesData);
 
           setData({
             hero: heroData,
@@ -65,12 +59,10 @@ export default function Home() {
             services: servicesData || []
           });
           
-          console.log('All data loaded successfully');
         } catch (err) {
           console.error('Error fetching data from Sanity:', err);
           setError(`Failed to load data: ${err.message}`);
         } finally {
-          console.log('Setting loading to false');
           setLoading(false);
         }
       };
@@ -85,9 +77,9 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {data.hero && <Hero {...data.hero} />}
+            <Services services={data.services} />
       {data.about && <About {...data.about} />}
       <Experience experiences={data.experiences} />
-      <Services services={data.services} />
       <Contact />
     </main>
   );
