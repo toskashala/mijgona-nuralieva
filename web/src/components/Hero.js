@@ -14,7 +14,7 @@ export default function Hero({
   return (
     <section
       id="home"
-      className="relative w-full min-h-screen flex flex-col justify-center items-center text-center px-4 py-32 overflow-hidden"
+      className="relative w-full flex flex-col justify-center items-center text-center px-4 pt-32 pb-0 overflow-hidden"
     >
       <div className="relative z-10 max-w-6xl mx-auto w-full px-4">
         {/* Hero Name & Headline */}
@@ -27,6 +27,7 @@ export default function Hero({
           >
             {firstName}
           </motion.span>
+
           <motion.span
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -56,32 +57,44 @@ export default function Hero({
         </motion.p>
       </div>
 
-      {/* Full-width bottom CTA buttons */}
-      <div className="absolute bottom-0 left-0 w-full flex">
-        {/* Filled button */}
-        <a
-          href={ctaButton.url || "#contact"}
-          className="w-1/2 bg-neutral-700 hover:bg-neutral-900 transition-colors 
-               text-white font-bold py-6 flex items-center justify-center gap-3 
-               border-r-0"
-        >
-          <FiArrowRight className="w-6 h-6" />
-          Contact Me
-        </a>
+      {/* Normal CTA buttons centered */}
+<div className="relative z-20 flex gap-4">
+  
+  {/* Contact Button */}
+  <a
+    href={ctaButton?.url || "#contact"}
+    className="
+  px-8 py-3
+  bg-gradient-to-r from-pink-600 to-pink-800 text-white font-semibold rounded-lg
+  shadow-md hover:shadow-lg
+  hover:opacity-90
+  transition-all duration-300
+  flex items-center gap-2
+"
+    >
+    <FiArrowRight className="w-5 h-5" />
+    Contact Me
+  </a>
 
-        {/* Outlined button */}
-        <a
-          href="/resume.pdf"
-          download
-          className="w-1/2 border border-neutral-700 border-r-0 
-               hover:bg-neutral-700/30 transition-colors 
-               text-neutral-700 font-bold py-6 
-               flex items-center justify-center gap-3"
-        >
-          <FiDownload className="w-6 h-6" />
-          Download CV
-        </a>
-      </div>
+  {/* Download Button */}
+  <a
+    href='/resume.pdf'
+    download
+    className="
+      px-8 py-3 
+      border border-pink-600 
+      text-pink-700 font-semibold rounded-lg
+      hover:bg-pink-50 hover:text-pink-900
+      shadow-sm hover:shadow-md
+      transition-all duration-300
+      flex items-center gap-2
+    "
+  >
+    <FiDownload className="w-5 h-5" />
+    Download CV
+  </a>
+</div>
+
       {/* Right-side Curly GIF Scroll Indicator */}
       <a
         href="#services"
@@ -97,7 +110,6 @@ export default function Hero({
         />
       </a>
 
-      {/* Outlined Name CSS */}
       <style>{`
         .text-outline {
           -webkit-text-stroke: 2px #374151;

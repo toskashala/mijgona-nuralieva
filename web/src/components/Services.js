@@ -22,7 +22,7 @@ export default function Services({ services = [] }) {
           }
         });
       },
-      { threshold: 0.3 },
+      { threshold: 0.3 }
     );
 
     serviceRefs.current.forEach((ref) => ref && observer.observe(ref));
@@ -30,10 +30,10 @@ export default function Services({ services = [] }) {
   }, [services.length]);
 
   return (
-    <section id="services" className="relative overflow-hidden pt-0 pb-28">
-      <div className="max-w-6xl mx-auto px-4 relative">
+    <section id="services" className="relative overflow-hidden px-6">
+      <div className="max-w-6xl mx-auto relative">
         {/* Services grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
           {services.map((service, index) => (
             <div
               key={index}
@@ -42,12 +42,18 @@ export default function Services({ services = [] }) {
               className={`
                 relative flex flex-col h-full bg-white rounded-2xl shadow-lg border border-neutral-300 overflow-hidden
                 transition-transform duration-700 ease-out opacity-0
-                ${visible[index] ? "translate-x-0 opacity-100" : index % 2 === 0 ? "-translate-x-24" : "translate-x-24"}
-                hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/30 hover:border-white
+                ${
+                  visible[index]
+                    ? "translate-x-0 opacity-100"
+                    : index % 2 === 0
+                    ? "-translate-x-20"
+                    : "translate-x-20"
+                }
+                hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-600/30 hover:border-pink-600
               `}
             >
               {/* Neon top accent */}
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-gradient-x hover:animate-gradient-fast"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-600 to-pink-800 animate-gradient-x hover:animate-gradient-fast"></div>
 
               {/* Service content */}
               <div className="p-6 flex-grow">
@@ -66,7 +72,7 @@ export default function Services({ services = [] }) {
                   {service.features.map((feature, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 bg-neutral-200/70 hover:bg-blue-400/30 text-neutral-900 hover:text-white rounded-full text-xs font-medium transition-all duration-300"
+                      className="px-3 py-1 bg-neutral-200/70 hover:bg-gradient-to-r hover:from-pink-600 hover:to-pink-800 text-neutral-900 hover:text-white rounded-full text-xs font-medium transition-all duration-300"
                     >
                       {feature}
                     </span>
