@@ -45,14 +45,14 @@ export default function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="relative text-black uppercase font-medium text-sm tracking-wide hover:text-gray-800 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full"
+              className="relative text-neutral-700 uppercase font-medium text-sm tracking-wide hover:text-neutral-800 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-neutral-700 after:transition-all after:duration-300 hover:after:w-full"
             >
               {item.name}
             </Link>
           ))}
           <a
             href="#contact"
-            className="px-5 py-2 border border-black text-black font-medium rounded-md hover:bg-black hover:text-white transition-all duration-300"
+            className="px-5 py-2 border border-neutral-700 text-neutral-700 font-medium rounded-md hover:bg-neutral-700 hover:text-white transition-all duration-300"
           >
             Get in Touch
           </a>
@@ -60,7 +60,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 text-black hover:text-gray-800 focus:outline-none"
+          className="md:hidden p-2 text-neutral-700 hover:text-gray-800 focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -76,7 +76,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="py-2 text-black uppercase font-medium hover:text-gray-800 transition-colors duration-300"
+                className="py-2 text-neutral-700 uppercase font-medium hover:text-neutral-800 transition-colors duration-300"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
@@ -84,7 +84,7 @@ export default function Navbar() {
             ))}
             <a
               href="#contact"
-              className="w-full py-2 px-4 border border-black text-black font-medium rounded-md hover:bg-black hover:text-white text-center transition-all duration-300"
+              className="w-full py-2 px-4 border border-neutral-700 text-neutral-700 font-medium rounded-md hover:bg-neutral-700 hover:text-white text-center transition-all duration-300"
               onClick={() => setIsOpen(false)}
             >
               Get in Touch
