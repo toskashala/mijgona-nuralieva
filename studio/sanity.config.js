@@ -1,6 +1,7 @@
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
 import { visionTool } from "@sanity/vision";
+import { media } from "sanity-plugin-media";
 
 import { schemaTypes } from "./schemas";
 
@@ -10,6 +11,7 @@ export default defineConfig({
   projectId: "tt2ed1zq",
   dataset: "production",
   plugins: [
+    media(),
     deskTool({
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       defaultDocumentNode: (S, { schemaType }) => {

@@ -1,6 +1,7 @@
 "use client";
 
 import { FiMail, FiLinkedin } from "react-icons/fi";
+import Image from "next/image";
 
 export default function Contact() {
   const socialLinks = [
@@ -24,11 +25,14 @@ export default function Contact() {
       className="w-full flex flex-col md:flex-row items-stretch p-0"
     >
       {/* LEFT IMAGE */}
-      <div className="w-full md:w-1/2 h-64 md:h-auto">
-        <img
-          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+      <div className="w-full md:w-1/2 h-96 md:h-auto relative overflow-hidden">
+        <Image
+          src="https://cdn.sanity.io/images/tt2ed1zq/production/6e6fadcbfd9c24d21b8fc279a1aa9c1348d784d3-3414x5120.webp"
           alt="Contact"
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover object-center"
+          sizes="(max-width: 768px) 100vw, 50vw"
+          priority
         />
       </div>
 
