@@ -22,7 +22,7 @@ export default function Services({ services = [] }) {
           }
         });
       },
-      { threshold: 0.3 },
+      { threshold: 0.3 }
     );
 
     serviceRefs.current.forEach((ref) => ref && observer.observe(ref));
@@ -30,8 +30,31 @@ export default function Services({ services = [] }) {
   }, [services.length]);
 
   return (
-    <section id="services" className="relative overflow-hidden px-6">
+    <section id="services" className="relative overflow-hidden px-6 py-16">
       <div className="max-w-6xl mx-auto relative">
+        {/* TOP FLEX SECTIONS */}
+        <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-6">
+          {/* Left creative title */}
+          <div className="md:w-1/2">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+              Our Exceptional <span className="text-pink-600">Services</span>
+            </h2>
+            <p className="text-gray-600 text-lg">
+              We combine creativity and expertise to deliver solutions that
+              elevate your business and inspire your audience.
+            </p>
+          </div>
+
+          {/* Right small text or tagline */}
+          <div className="md:w-1/2 text-gray-700 text-lg">
+            <p>
+              Explore what we offer. Each service is tailored to ensure your
+              success and help you stand out in a competitive market.
+              
+            </p>
+          </div>
+        </div>
+
         {/* Services grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
           {services.map((service, index) => (
@@ -46,8 +69,8 @@ export default function Services({ services = [] }) {
                   visible[index]
                     ? "translate-x-0 opacity-100"
                     : index % 2 === 0
-                      ? "-translate-x-20"
-                      : "translate-x-20"
+                    ? "-translate-x-20"
+                    : "translate-x-20"
                 }
                 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-600/30 hover:border-pink-600
               `}
