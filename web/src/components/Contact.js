@@ -64,7 +64,9 @@ export default function Contact() {
                 </span>
                 <div className="ml-3">
                   <p className="text-xs text-gray-500">{item.label}</p>
-                  <p className="font-medium text-gray-900 text-sm">{item.text}</p>
+                  <p className="font-medium text-gray-900 text-sm">
+                    {item.text}
+                  </p>
                 </div>
               </a>
             ))}

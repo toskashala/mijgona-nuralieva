@@ -58,12 +58,11 @@ export default function Hero({
       </div>
 
       {/* Normal CTA buttons centered */}
-<div className="relative z-20 flex gap-4">
-  
-  {/* Contact Button */}
-  <a
-    href={ctaButton?.url || "#contact"}
-    className="
+      <div className="relative z-20 flex gap-4">
+        {/* Contact Button */}
+        <a
+          href={ctaButton?.url || "#contact"}
+          className="
   px-8 py-3
   bg-gradient-to-r from-pink-600 to-pink-800 text-white font-semibold rounded-lg
   shadow-md hover:shadow-lg
@@ -71,16 +70,16 @@ export default function Hero({
   transition-all duration-300
   flex items-center gap-2
 "
-    >
-    <FiArrowRight className="w-5 h-5" />
-    Contact Me
-  </a>
+        >
+          <FiArrowRight className="w-5 h-5" />
+          Contact Me
+        </a>
 
-  {/* Download Button */}
-  <a
-    href='/resume.pdf'
-    download
-    className="
+        {/* Download Button */}
+        <a
+          href="/resume.pdf"
+          download
+          className="
       px-8 py-3 
       border border-pink-600 
       text-pink-700 font-semibold rounded-lg
@@ -89,11 +88,11 @@ export default function Hero({
       transition-all duration-300
       flex items-center gap-2
     "
-  >
-    <FiDownload className="w-5 h-5" />
-    Download CV
-  </a>
-</div>
+        >
+          <FiDownload className="w-5 h-5" />
+          Download CV
+        </a>
+      </div>
 
       {/* Right-side Curly GIF Scroll Indicator */}
       <a
