@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Languages from "./Languages";
 
 export default function About({
   title,
@@ -11,68 +12,57 @@ export default function About({
   profileImage,
 }) {
   return (
-    <section id="about" className="py-24 bg-neutral-700">
+    <section id="about" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4">
-        {/* Title with left accent rail */}
-        <div className="flex items-center gap-4 mb-16">
-          <div className="h-8 w-1.5 bg-white rounded-full"></div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
+        <div className="flex items-center gap-4 mb-12">
+          <div className="h-8 w-1.5 bg-gradient-to-b from-pink-400 to-pink-600 rounded-full"></div>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-neutral-900">
             {title}
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-16 items-start">
-          {/* LEFT SIDE — TEXT */}
-          <div>
-            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6">
-              {subtitle}
-            </h3>
-
-            <div className="space-y-5 leading-relaxed mb-10">
-              <p className="text-white">{description1}</p>
-              <p className="text-white">{description2}</p>
-            </div>
-
+        <div className="grid md:grid-cols-2 gap-12 items-stretch">
+          <div className="flex flex-col justify-between">
             <div>
-              <h4 className="text-sm font-semibold text-neutral-200 mb-3 tracking-wide uppercase">
-                Skills
-              </h4>
+              <h3 className="text-2xl md:text-3xl font-semibold text-neutral-900 mb-6">
+                {subtitle}
+              </h3>
 
-              <div className="flex flex-wrap gap-3">
-                {skills.map((skill, i) => (
-                  <span
-                    key={i}
-                    className="px-4 py-2 bg-neutral-600 text-white rounded-xl text-sm font-medium border border-neutral-500 hover:border-white transition-all"
-                  >
-                    {skill}
-                  </span>
-                ))}
+              <div className="space-y-5 leading-relaxed text-neutral-700 mb-10">
+                <p>{description1}</p>
+                <p>{description2}</p>
+              </div>
+
+              <div className="mb-8">
+                <h4 className="text-sm font-semibold text-neutral-600 mb-3 uppercase tracking-wide">
+                  Skills
+                </h4>
+                <div className="flex flex-wrap gap-3">
+                  {skills.map((skill, i) => (
+                    <span
+                      key={i}
+                      className="px-4 py-2 text-sm border border-pink-300 bg-pink-50 text-pink-600 rounded-full hover:bg-pink-100 transition-colors"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-
-          {/* RIGHT SIDE — IMAGE CARD */}
-          <div className="relative group">
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-neutral-600">
-              {/* subtle futuristic stripe */}
-              <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/0 via-white/10 to-transparent transform skew-y-6"></div>
-              </div>
-
-              <div className="relative h-80 md:h-[420px]">
-                <Image
-                  src={profileImage}
-                  alt="Profile Image"
-                  fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
-                />
-              </div>
-            </div>
+          <div className="relative rounded-3xl overflow-hidden shadow-lg border border-pink-200 h-full flex max-h-[520px]">
+            <Image
+              src={profileImage}
+              alt="Profile"
+              width={520}
+              height={620}
+              className="object-cover w-full h-full"
+              priority
+            />
           </div>
         </div>
       </div>
+      <Languages />
     </section>
   );
 }

@@ -22,7 +22,7 @@ export default function Services({ services = [] }) {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     serviceRefs.current.forEach((ref) => ref && observer.observe(ref));
@@ -50,7 +50,6 @@ export default function Services({ services = [] }) {
             <p>
               Explore what we offer. Each service is tailored to ensure your
               success and help you stand out in a competitive market.
-              
             </p>
           </div>
         </div>
@@ -69,8 +68,8 @@ export default function Services({ services = [] }) {
                   visible[index]
                     ? "translate-x-0 opacity-100"
                     : index % 2 === 0
-                    ? "-translate-x-20"
-                    : "translate-x-20"
+                      ? "-translate-x-20"
+                      : "translate-x-20"
                 }
                 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-600/30 hover:border-pink-600
               `}

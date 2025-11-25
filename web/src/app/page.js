@@ -77,14 +77,14 @@ export default function Home() {
   }, []);
 
   if (loading)
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
-      <div className="relative w-16 h-16">
-        <div className="absolute inset-0 rounded-full border-4 border-pink-300 border-t-transparent animate-spin"></div>
-        <div className="absolute inset-2 rounded-full border-4 border-pink-600 border-b-transparent animate-[spin_1.2s_linear_reverse_infinite]"></div>
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <div className="relative w-16 h-16">
+          <div className="absolute inset-0 rounded-full border-4 border-pink-300 border-t-transparent animate-spin"></div>
+          <div className="absolute inset-2 rounded-full border-4 border-pink-600 border-b-transparent animate-[spin_1.2s_linear_reverse_infinite]"></div>
+        </div>
       </div>
-    </div>
-  );
+    );
   if (error)
     return (
       <div className="min-h-screen flex items-center justify-center text-red-500">
@@ -96,7 +96,6 @@ export default function Home() {
     <main className="min-h-screen">
       {data.hero && <Hero {...data.hero} />}
       <Services services={data.services} />
-      <Languages />
       {data.about && <About {...data.about} />}
       <Experience experiences={data.experiences} />
       <Contact />

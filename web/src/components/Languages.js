@@ -26,12 +26,27 @@ export default function LanguageMap() {
 
   const languageCountries = {
     English: ["United Kingdom", "United States of America"],
-    Russian: ["Russia"],
+    Russian: [
+      "Russia",
+      "Ukraine",
+      "Kazakhstan",
+      "Kyrgyzstan",
+      "Belarus",
+      "Uzbekistan",
+      "Tajikistan",
+      "	Turkmenistan",
+    ],
     Chinese: ["China"],
     Farsi: ["Tajikistan"],
   };
 
-  const livedCountries = ["United States of America", "Tajikistan", "China", "Ukraine", "Czechia"];
+  const livedCountries = [
+    "United States of America",
+    "Tajikistan",
+    "China",
+    "Ukraine",
+    "Czechia",
+  ];
 
   // Flatten language data for tooltip
   const countryToLanguages = {};
@@ -49,96 +64,140 @@ export default function LanguageMap() {
   ];
 
   return (
-    <section className="py-16 px-6 max-w-6xl mx-auto">
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-10">
-        <div>
-          <h2 className="text-4xl font-bold mb-2 bg-gradient-to-r from-pink-600 to-pink-800 bg-clip-text text-transparent">
-            Languages & Countries
-          </h2>
-          <p className="text-gray-600 max-w-md">
-            I speak 5 languages and have lived in several countries. Hover over the highlighted countries to explore.
-          </p>
-        </div>
+    <section className="p-6 max-w-6xl mx-auto">
+      <h2 className="text-4xl font-bold mb-10 bg-gradient-to-r from-pink-600 to-pink-800 bg-clip-text text-transparent">
+        Languages & Countries
+      </h2>
 
-        <div className="flex flex-wrap gap-3 mt-6 md:mt-0">
-          {Object.keys(languageCountries).map((lang) => (
-            <span
-              key={lang}
-              className="px-4 py-1 rounded-full bg-gradient-to-r from-pink-600 to-pink-800 text-white text-sm font-medium shadow"
-            >
-              {lang}
-            </span>
-          ))}
-        </div>
-      </div>
+      <div className="flex flex-col lg:flex-row gap-8">
+        {/* Left side - Map */}
+        <div className="w-full lg:w-1/2">
+          <div className="border rounded-2xl shadow-lg p-4 bg-white relative h-full">
+            {error ? (
+              <div className="h-96 flex items-center justify-center text-red-500">
+                {error}
+              </div>
+            ) : !geographyData ? (
+              <div className="h-96 flex items-center justify-center">
+                <div className="animate-pulse text-gray-400">
+                  Loading map...
+                </div>
+              </div>
+            ) : (
+              <ComposableMap
+                projection="geoMercator"
+                projectionConfig={{ scale: 120, center: [20, 20] }}
+                width={800}
+                height={500}
+                style={{ width: "100%", height: "100%" }}
+              >
+                <Geographies geography={geographyData}>
+                  {({ geographies }) =>
+                    geographies.map((geo) => {
+                      const countryName =
+                        geo.properties.name ||
+                        geo.properties.NAME ||
+                        geo.properties.NAME_LONG;
+                      const isHighlighted =
+                        highlightedCountries.includes(countryName);
 
-      <div className="w-full border rounded-2xl shadow-lg p-4 bg-white relative">
-        {error ? (
-          <div className="h-96 flex items-center justify-center text-red-500">{error}</div>
-        ) : !geographyData ? (
-          <div className="h-96 flex items-center justify-center">
-            <div className="animate-pulse text-gray-400">Loading map...</div>
-          </div>
-        ) : (
-          <ComposableMap
-            projection="geoMercator"
-            projectionConfig={{ scale: 120, center: [20, 20] }}
-            width={800}
-            height={500}
-            style={{ width: "100%", height: "100%" }}
-          >
-            <Geographies geography={geographyData}>
-              {({ geographies }) =>
-                geographies.map((geo) => {
-                  const countryName =
-                    geo.properties.name || geo.properties.NAME || geo.properties.NAME_LONG;
-                  const isHighlighted = highlightedCountries.includes(countryName);
+                      let fillColor = "#E5E7EB"; // default
+                      if (livedCountries.includes(countryName))
+                        fillColor = "#3B82F6"; // blue
+                      else if (countryToLanguages[countryName])
+                        fillColor = "#DB2777"; // pink
 
-                  let fillColor = "#E5E7EB"; // default
-                  if (livedCountries.includes(countryName)) fillColor = "#3B82F6"; // blue
-                  else if (countryToLanguages[countryName]) fillColor = "#DB2777"; // pink
-
-                  return (
-                    <motion.g key={geo.rsmKey}>
-                      <Geography
-                        geography={geo}
-                        fill={fillColor}
-                        stroke="#FFF"
-                        strokeWidth={0.5}
-                        style={{
-                          default: { outline: "none" },
-                          hover: {
-                            fill: isHighlighted
-                              ? fillColor === "#DB2777"
-                                ? "#9D174D"
-                                : "#2563EB"
-                              : fillColor,
-                            outline: "none",
-                            cursor: isHighlighted ? "pointer" : "default",
-                          },
-                          pressed: { outline: "none" },
-                        }}
-                        onMouseEnter={() => isHighlighted && setHovered(countryName)}
-                        onMouseLeave={() => setHovered(null)}
-                      />
-                    </motion.g>
-                  );
-                })
-              }
-            </Geographies>
-          </ComposableMap>
-        )}
-
-        {/* Tooltip */}
-        {hovered && (
-          <div className="absolute top-2 left-2 bg-white px-3 py-2 rounded-md shadow-lg text-sm text-gray-800 border border-gray-200 pointer-events-none">
-            <p className="font-semibold">{hovered}</p>
-            {countryToLanguages[hovered] && (
-              <p>Languages: {countryToLanguages[hovered].join(", ")}</p>
+                      return (
+                        <motion.g key={geo.rsmKey}>
+                          <Geography
+                            geography={geo}
+                            fill={fillColor}
+                            stroke="#FFF"
+                            strokeWidth={0.5}
+                            style={{
+                              default: { outline: "none" },
+                              hover: {
+                                fill: isHighlighted
+                                  ? fillColor === "#DB2777"
+                                    ? "#9D174D"
+                                    : "#2563EB"
+                                  : fillColor,
+                                outline: "none",
+                                cursor: isHighlighted ? "pointer" : "default",
+                              },
+                              pressed: { outline: "none" },
+                            }}
+                            onMouseEnter={() =>
+                              isHighlighted && setHovered(countryName)
+                            }
+                            onMouseLeave={() => setHovered(null)}
+                          />
+                        </motion.g>
+                      );
+                    })
+                  }
+                </Geographies>
+              </ComposableMap>
             )}
-            {livedCountries.includes(hovered) && <p>I&apos;ve lived here</p>}
+
+            {/* Tooltip */}
+            {hovered && (
+              <div className="absolute top-2 left-2 bg-white px-3 py-2 rounded-md shadow-lg text-sm text-gray-800 border border-gray-200 pointer-events-none">
+                <p className="font-semibold">{hovered}</p>
+                {countryToLanguages[hovered] && (
+                  <p>Languages: {countryToLanguages[hovered].join(", ")}</p>
+                )}
+                {livedCountries.includes(hovered) && (
+                  <p>I&apos;ve lived here</p>
+                )}
+              </div>
+            )}
           </div>
-        )}
+        </div>
+
+        {/* Right side - Text content */}
+        <div className="w-full lg:w-1/2 flex flex-col">
+          <div className="bg-white p-6 rounded-2xl shadow-lg h-full">
+            <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+              My Language Journey
+            </h3>
+            <p className="text-gray-600 mb-6">
+              I'm fluent in 5 languages and have had the privilege of living in
+              several countries, which has given me a deep appreciation for
+              different cultures and perspectives.
+            </p>
+
+            <div className="mb-6">
+              <h4 className="font-medium text-gray-800 mb-3">
+                Languages I Speak:
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {Object.keys(languageCountries).map((lang) => (
+                  <span
+                    key={lang}
+                    className="px-4 py-1 rounded-full bg-gradient-to-r from-pink-600 to-pink-800 text-white text-sm font-medium shadow"
+                  >
+                    {lang}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h4 className="font-medium text-gray-800 mb-2">Map Legend:</h4>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-center">
+                  <span className="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
+                  <span>Countries I've lived in</span>
+                </li>
+                <li className="flex items-center">
+                  <span className="w-3 h-3 bg-pink-600 rounded-full mr-2"></span>
+                  <span>Countries where my languages are spoken</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
