@@ -1,8 +1,8 @@
 import { createClient } from "next-sanity";
 
 export const client = createClient({
-  projectId: "tt2ed1zq",
-  dataset: "production",
-  apiVersion: "2025-11-12", // use current date (YYYY-MM-DD) to target the latest API version
-  useCdn: true,
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+  apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
+  useCdn: process.env.NEXT_PUBLIC_SANITY_USE_CDN,
 });

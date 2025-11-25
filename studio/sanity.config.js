@@ -8,8 +8,8 @@ import { schemaTypes } from "./schemas";
 export default defineConfig({
   name: "default",
   title: "Portfolio Studio",
-  projectId: "tt2ed1zq",
-  dataset: "production",
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID,
+  dataset: process.env.SANITY_STUDIO_DATASET,
   plugins: [
     media(),
     deskTool({
