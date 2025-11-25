@@ -162,7 +162,7 @@ export default function LanguageMap() {
               My Language Journey
             </h3>
             <p className="text-gray-600 mb-6">
-              I'm fluent in 5 languages and have had the privilege of living in
+              I&apos;m fluent in 5 languages and have had the privilege of living in
               several countries, which has given me a deep appreciation for
               different cultures and perspectives.
             </p>
@@ -188,7 +188,7 @@ export default function LanguageMap() {
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-center">
                   <span className="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
-                  <span>Countries I've lived in</span>
+                  <span>Countries I&apos;ve lived in</span>
                 </li>
                 <li className="flex items-center">
                   <span className="w-3 h-3 bg-pink-600 rounded-full mr-2"></span>
