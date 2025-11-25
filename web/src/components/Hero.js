@@ -96,7 +96,7 @@ export default function Hero({
 
       {/* Right-side Curly GIF Scroll Indicator */}
       <a
-        href="#services"
+        href="#about"
         aria-label="Scroll down"
         className="absolute right-6 top-1/2 -translate-y-1/2 z-40 cursor-pointer"
       >

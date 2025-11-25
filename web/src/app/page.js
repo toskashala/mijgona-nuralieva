@@ -4,13 +4,11 @@ import { useEffect, useState } from "react";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
-import Services from "@/components/Services";
 import Contact from "@/components/Contact";
 import {
   heroQuery,
   aboutQuery,
   experiencesQuery,
-  servicesQuery,
 } from "../../sanity/lib/queries";
 import { client } from "../../sanity/lib/client";
 import Languages from "@/components/Languages";
@@ -20,7 +18,6 @@ export default function Home() {
     hero: null,
     about: null,
     experiences: [],
-    services: [],
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -56,13 +53,10 @@ export default function Home() {
 
           const experiencesData = await client.fetch(experiencesQuery);
 
-          const servicesData = await client.fetch(servicesQuery);
-
           setData({
             hero: heroData,
             about: aboutData,
             experiences: experiencesData || [],
-            services: servicesData || [],
           });
         } catch (err) {
           console.error("Error fetching data from Sanity:", err);
@@ -78,7 +72,7 @@ export default function Home() {
 
   if (loading)
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-neutral-100 to-neutral-300">
         <div className="relative w-16 h-16">
           <div className="absolute inset-0 rounded-full border-4 border-pink-300 border-t-transparent animate-spin"></div>
           <div className="absolute inset-2 rounded-full border-4 border-pink-600 border-b-transparent animate-[spin_1.2s_linear_reverse_infinite]"></div>
@@ -95,7 +89,6 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {data.hero && <Hero {...data.hero} />}
-      <Services services={data.services} />
       {data.about && <About {...data.about} />}
       <Experience experiences={data.experiences} />
       <Contact />

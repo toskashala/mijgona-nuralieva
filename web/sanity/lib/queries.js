@@ -25,10 +25,3 @@ export const experiencesQuery = `*[_type == "experience"] | order(order asc) {
   description,
   skills
 }`;
-
-export const servicesQuery = `*[_type == "service"] | order(order asc) {
-  title,
-  description,
-  features,
-  icon
-}`;

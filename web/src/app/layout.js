@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body
-        className={`${inter.variable} font-sans antialiased text-gray-900 bg-gradient-to-br from-white via-neutral-100 to-neutral-300 min-h-screen`}
+        className={`${inter.variable} font-sans antialiased text-gray-900 min-h-screen`}
       >
         {" "}
         <Navbar />

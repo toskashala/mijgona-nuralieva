@@ -12,7 +12,7 @@ export default function About({
   profileImage,
 }) {
   return (
-    <section id="about" className="py-24 bg-white">
+    <section id="about" className="py-24">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center gap-4 mb-12">
           <div className="h-8 w-1.5 bg-gradient-to-b from-pink-400 to-pink-600 rounded-full"></div>

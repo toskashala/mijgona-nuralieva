@@ -29,7 +29,6 @@ export default function Navbar() {
   }, [lastScrollY]);
 
   const navItems = [
-    { name: "Services", href: "#services" },
     { name: "About", href: "#about" },
     { name: "Experience", href: "#experience" },
   ];

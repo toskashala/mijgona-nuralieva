@@ -4,7 +4,7 @@ export default function Experience({ experiences = [] }) {
   return (
     <section
       id="experience"
-      className="py-28 bg-white relative overflow-hidden"
+      className="pt-0 pb-24 relative overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-4 relative">
         {/* Section title with accent */}
