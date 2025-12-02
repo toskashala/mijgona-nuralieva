@@ -18,7 +18,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="border-t border-gray-200/50 backdrop-blur-sm">
+    <footer className="backdrop-blur-sm">
       <div className="container mx-auto px-4 py-12 text-center">
         {/* Name & Social */}
         <div className="mb-6">

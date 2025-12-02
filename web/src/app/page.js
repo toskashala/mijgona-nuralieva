@@ -9,15 +9,17 @@ import {
   heroQuery,
   aboutQuery,
   experiencesQuery,
+  quoteBannerQuery,
 } from "../../sanity/lib/queries";
 import { client } from "../../sanity/lib/client";
-import Languages from "@/components/Languages";
+import QuoteBanner from "@/components/QuoteBanner";
 
 export default function Home() {
   const [data, setData] = useState({
     hero: null,
     about: null,
     experiences: [],
+    quoteBanner: null,
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -51,12 +53,16 @@ export default function Home() {
 
           const aboutData = await client.fetch(aboutQuery);
 
-          const experiencesData = await client.fetch(experiencesQuery);
+          const [experiencesData, quoteBannerData] = await Promise.all([
+            client.fetch(experiencesQuery),
+            client.fetch(quoteBannerQuery),
+          ]);
 
           setData({
             hero: heroData,
             about: aboutData,
             experiences: experiencesData || [],
+            quoteBanner: quoteBannerData || null,
           });
         } catch (err) {
           console.error("Error fetching data from Sanity:", err);
@@ -90,6 +96,7 @@ export default function Home() {
     <main className="min-h-screen">
       {data.hero && <Hero {...data.hero} />}
       {data.about && <About {...data.about} />}
+      {data.quoteBanner && <QuoteBanner {...data.quoteBanner} />}
       <Experience experiences={data.experiences} />
       <Contact />
     </main>

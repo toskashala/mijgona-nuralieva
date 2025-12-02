@@ -64,10 +64,13 @@ export default function LanguageMap() {
   ];
 
   return (
-    <section className="p-6 max-w-6xl mx-auto">
-      <h2 className="text-4xl font-bold mb-10 bg-gradient-to-r from-pink-600 to-pink-800 bg-clip-text text-transparent">
-        Languages & Countries
-      </h2>
+    <section className="p-6 max-w-6xl mx-auto mt-3">
+      <div className="flex items-center gap-2 mb-6">
+        <div className="h-8 w-1.5 bg-gradient-to-b from-pink-400 to-pink-600 rounded-full"></div>
+        <h2 className="text-xl md:text-3xl font-bold tracking-tight text-neutral-900">
+          Languages & Countries
+        </h2>
+      </div>
 
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Left side - Map */}
@@ -103,7 +106,7 @@ export default function LanguageMap() {
 
                       let fillColor = "#E5E7EB"; // default
                       if (livedCountries.includes(countryName))
-                        fillColor = "#3B82F6"; // blue
+                        fillColor = "#fda1cbff"; // purple
                       else if (countryToLanguages[countryName])
                         fillColor = "#DB2777"; // pink
 
@@ -120,7 +123,7 @@ export default function LanguageMap() {
                                 fill: isHighlighted
                                   ? fillColor === "#DB2777"
                                     ? "#9D174D"
-                                    : "#2563EB"
+                                    : "#f9b1d2ff"
                                   : fillColor,
                                 outline: "none",
                                 cursor: isHighlighted ? "pointer" : "default",
@@ -158,17 +161,17 @@ export default function LanguageMap() {
         {/* Right side - Text content */}
         <div className="w-full lg:w-1/2 flex flex-col">
           <div className="bg-white p-6 rounded-2xl shadow-lg h-full">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">
               My Language Journey
             </h3>
             <p className="text-gray-600 mb-6">
-              I&apos;m fluent in 5 languages and have had the privilege of living in
-              several countries, which has given me a deep appreciation for
-              different cultures and perspectives.
+              I&apos;m fluent in 5 languages and have had the privilege of
+              living in several countries, which has given me a deep
+              appreciation for different cultures and perspectives.
             </p>
 
             <div className="mb-6">
-              <h4 className="font-medium text-gray-800 mb-3">
+              <h4 className="text-xl font-medium text-gray-800 mb-3">
                 Languages I Speak:
               </h4>
               <div className="flex flex-wrap gap-2">
@@ -184,10 +187,12 @@ export default function LanguageMap() {
             </div>
 
             <div>
-              <h4 className="font-medium text-gray-800 mb-2">Map Legend:</h4>
+              <h4 className="text-xl font-medium text-gray-800 mb-2">
+                Map Legend:
+              </h4>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-center">
-                  <span className="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
+                  <span className="w-3 h-3 bg-[#fda1cbff] rounded-full mr-2"></span>
                   <span>Countries I&apos;ve lived in</span>
                 </li>
                 <li className="flex items-center">

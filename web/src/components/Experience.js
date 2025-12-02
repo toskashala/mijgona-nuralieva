@@ -1,45 +1,69 @@
 "use client";
 
 export default function Experience({ experiences = [] }) {
+  // Split into two halves
+  const left = experiences.filter((_, i) => i % 2 === 0);
+  const right = experiences.filter((_, i) => i % 2 === 1);
+
   return (
-    <section
-      id="experience"
-      className="pt-0 pb-24 relative overflow-hidden"
-    >
-      <div className="max-w-6xl mx-auto px-4 relative">
-        {/* Section title with accent */}
-        <div className="flex items-center justify-center gap-6 mb-16">
-          <div className="h-10 w-1.5 bg-neutral-900 rounded-full"></div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-neutral-900 drop-shadow-sm">
-            Experience
-          </h2>
+    <section id="experience" className="pt-0 pb-24 relative">
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Title */}
+        <div className="flex items-center gap-2 mb-10">
+          <div className="h-8 w-1.5 bg-gradient-to-b from-pink-400 to-pink-600 rounded-full" />
+          <h2 className="text-xl md:text-3xl font-bold">Experience</h2>
         </div>
 
-        {/* Grid with 2 cards per row */}
-        <div className="grid md:grid-cols-2 gap-10">
-          {experiences.map((exp, index) => (
-            <div
-              key={index}
-              className="relative bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-neutral-300 hover:shadow-xl hover:border-neutral-900 transition-all duration-500"
-            >
-              {/* Accent bar */}
-              <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-neutral-900 rounded-r-full shadow-[0_0_10px_2px_rgba(0,0,0,0.1)]"></div>
+        <div className="grid md:grid-cols-2 gap-10 relative">
+          {/* LEFT TIMELINE */}
+          <div className="relative">
+            {/* vertical line: SAME left offset used by the pin */}
+            <div className="absolute left-6 top-0 bottom-0 border-l-2 border-neutral-200" />
 
-              <h3 className="text-2xl font-semibold text-neutral-900 mb-2">
-                {exp.title}
-              </h3>
+            <div className="flex flex-col gap-12">
+              {left.map((exp, i) => (
+                <div key={i} className="relative pl-14">
+                  {/* Pin: placed at left-6 and translated -50% to center over the line */}
+                  <div className="absolute left-6 top-4 -translate-x-1/2 w-4 h-4 bg-pink-500 border-4 border-white rounded-full shadow-md" />
 
-              <div className="flex flex-col sm:flex-row sm:items-center text-neutral-500 mb-4 text-sm">
-                <span className="font-medium">{exp.company}</span>
-                <span className="hidden sm:block mx-2">•</span>
-                <span>{exp.period}</span>
-              </div>
-
-              <p className="text-neutral-700 leading-relaxed">
-                {exp.description}
-              </p>
+                  <div className="bg-white p-6 rounded-2xl shadow-lg border border-neutral-200 hover:border-neutral-900 transition">
+                    <h3 className="text-xl font-semibold mb-1">{exp.title}</h3>
+                    <p className="text-neutral-600 text-sm mb-2">
+                      <span className="font-medium">{exp.company}</span> •{" "}
+                      {exp.period}
+                    </p>
+                    <p className="text-neutral-700 leading-relaxed">
+                      {exp.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* RIGHT TIMELINE */}
+          <div className="relative">
+            {/* vertical line for right column — same left offset */}
+            <div className="absolute left-6 top-0 bottom-0 border-l-2 border-neutral-200" />
+
+            <div className="flex flex-col gap-12">
+              {right.map((exp, i) => (
+                <div key={i} className="relative pl-14">
+                  <div className="absolute left-6 top-4 -translate-x-1/2 w-4 h-4 bg-pink-500 border-4 border-white rounded-full shadow-md" />
+                  <div className="bg-white p-6 rounded-2xl shadow-lg border border-neutral-200 hover:border-neutral-900 transition">
+                    <h3 className="text-xl font-semibold mb-1">{exp.title}</h3>
+                    <p className="text-neutral-600 text-sm mb-2">
+                      <span className="font-medium">{exp.company}</span> •{" "}
+                      {exp.period}
+                    </p>
+                    <p className="text-neutral-700 leading-relaxed">
+                      {exp.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

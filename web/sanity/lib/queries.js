@@ -25,3 +25,8 @@ export const experiencesQuery = `*[_type == "experience"] | order(order asc) {
   description,
   skills
 }`;
+
+export const quoteBannerQuery = `*[_type == "quoteBanner" && isActive == true][0] {
+  quote,
+  author
+}`;

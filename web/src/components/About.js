@@ -12,11 +12,11 @@ export default function About({
   profileImage,
 }) {
   return (
-    <section id="about" className="py-24">
+    <section id="about" className="pt-24 pb-0">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex items-center gap-4 mb-12">
+        <div className="flex items-center gap-2 mb-6">
           <div className="h-8 w-1.5 bg-gradient-to-b from-pink-400 to-pink-600 rounded-full"></div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-neutral-900">
+          <h2 className="text-xl md:text-3xl font-bold tracking-tight text-neutral-900">
             {title}
           </h2>
         </div>
@@ -24,11 +24,11 @@ export default function About({
         <div className="grid md:grid-cols-2 gap-12 items-stretch">
           <div className="flex flex-col justify-between">
             <div>
-              <h3 className="text-2xl md:text-3xl font-semibold text-neutral-900 mb-6">
+              <h3 className="text-md md:text-xl font-semibold text-neutral-900 mb-4">
                 {subtitle}
               </h3>
 
-              <div className="space-y-5 leading-relaxed text-neutral-700 mb-10">
+              <div className="space-y-5 leading-relaxed text-neutral-700 mb-6">
                 <p>{description1}</p>
                 <p>{description2}</p>
               </div>

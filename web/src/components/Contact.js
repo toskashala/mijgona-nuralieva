@@ -1,7 +1,6 @@
 "use client";
 
 import { FiMail, FiLinkedin } from "react-icons/fi";
-import Image from "next/image";
 
 export default function Contact() {
   const socialLinks = [
@@ -22,103 +21,92 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="w-full flex flex-col md:flex-row items-stretch p-0"
+      className="max-w-4xl mx-auto bg-pink-50 rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.1)] border-2 border-dashed border-pink-200 p-8 md:p-12 relative"
     >
-      {/* LEFT IMAGE */}
-      <div className="w-full md:w-1/2 h-96 md:h-auto relative overflow-hidden">
-        <Image
-          src="https://cdn.sanity.io/images/tt2ed1zq/production/6e6fadcbfd9c24d21b8fc279a1aa9c1348d784d3-3414x5120.webp"
-          alt="Contact"
-          fill
-          className="object-cover object-center"
-          sizes="(max-width: 768px) 100vw, 50vw"
-          priority
-        />
+      {/* Optional: cute doodles */}
+      <div className="absolute top-4 left-4 text-pink-300 text-3xl select-none pointer-events-none">
+        💌 ✨
+      </div>
+      <div className="absolute bottom-4 right-4 text-pink-300 text-3xl select-none pointer-events-none">
+        🌸 ✨
       </div>
 
-      {/* RIGHT FORM */}
-      <div className="w-full md:w-1/2 flex items-center justify-center bg-white px-6 py-10 md:px-10 md:py-12">
-        <div className="max-w-md w-full">
-          {/* Header */}
-          <h2 className="text-3xl font-bold mb-4 text-gray-900">
-            Get In Touch
-          </h2>
+      <div className="space-y-6 text-center">
+        {/* Header */}
+        <h2 className="text-2xl md:text-3xl font-handwriting text-pink-600">
+          Get in Touch
+        </h2>
+        <h3 className="text-lg md:text-xl font-semibold text-gray-900">
+          Let’s work together
+        </h3>
+        <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+          I’m always open to discussing new projects, creative ideas, or
+          opportunities to be part of your visions.
+        </p>
 
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">
-            Let&apos;s work together
-          </h3>
+        {/* Social links */}
+        <div className="flex justify-center gap-4 md:gap-6">
+          {socialLinks.map((item, index) => (
+            <a
+              key={index}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center p-2 rounded-xl hover:bg-pink-100 transition-colors group"
+            >
+              <span className="flex items-center justify-center w-9 h-9 rounded-full bg-pink-100 text-pink-600 group-hover:bg-pink-200 group-hover:text-pink-700 transition-colors">
+                {item.icon}
+              </span>
+              <div className="ml-2">
+                <p className="text-xs text-gray-500">{item.label}</p>
+                <p className="font-medium text-gray-900 text-sm">{item.text}</p>
+              </div>
+            </a>
+          ))}
+        </div>
 
-          <p className="text-gray-600 mb-6 text-sm leading-relaxed">
-            I&apos;m always open to discussing new projects, creative ideas or
-            opportunities to be part of your visions.
-          </p>
-
-          {/* Social links */}
-          <div className="space-y-3 mb-8">
-            {socialLinks.map((item, index) => (
-              <a
-                key={index}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center p-2 rounded-lg hover:bg-gray-50 transition-colors group"
-              >
-                <span className="flex items-center justify-center w-9 h-9 rounded-full bg-gray-100 text-gray-600 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
-                  {item.icon}
-                </span>
-                <div className="ml-3">
-                  <p className="text-xs text-gray-500">{item.label}</p>
-                  <p className="font-medium text-gray-900 text-sm">
-                    {item.text}
-                  </p>
-                </div>
-              </a>
-            ))}
+        {/* Form */}
+        <form className="space-y-4 max-w-md mx-auto">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Name
+            </label>
+            <input
+              type="text"
+              className="w-full px-3 py-2 border border-pink-200 rounded-xl text-sm focus:ring-2 focus:ring-pink-300"
+              placeholder="Your name"
+            />
           </div>
 
-          {/* Form */}
-          <form className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Name
-              </label>
-              <input
-                type="text"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500"
-                placeholder="Your name"
-              />
-            </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Email
+            </label>
+            <input
+              type="email"
+              className="w-full px-3 py-2 border border-pink-200 rounded-xl text-sm focus:ring-2 focus:ring-pink-300"
+              placeholder="your.email@example.com"
+            />
+          </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Email
-              </label>
-              <input
-                type="email"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500"
-                placeholder="your.email@example.com"
-              />
-            </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Message
+            </label>
+            <textarea
+              rows={3}
+              className="w-full px-3 py-2 border border-pink-200 rounded-xl text-sm focus:ring-2 focus:ring-pink-300"
+              placeholder="How can I help you?"
+            ></textarea>
+          </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Message
-              </label>
-              <textarea
-                rows="3"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500"
-                placeholder="How can I help you?"
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg text-sm hover:opacity-90 transition-opacity"
-            >
-              Send Message
-            </button>
-          </form>
-        </div>
+          <button
+            type="submit"
+            className="w-full px-4 py-2 bg-gradient-to-r from-pink-400 to-pink-600 text-white font-handwriting text-sm rounded-xl hover:opacity-90 transition-opacity"
+          >
+            Send Message
+          </button>
+        </form>
       </div>
     </section>
   );
