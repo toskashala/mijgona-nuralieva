@@ -2,7 +2,7 @@
 
 export default function QuoteBanner({ quote, author }) {
   return (
-    <section className="relative w-full py-12 bg-pink-600 my-12">
+    <section className="relative w-full py-12 bg-brown-600 my-12">
       <div className="max-w-3xl mx-auto px-6 text-center">
         {/* Quote in normal font */}
         <p className="text-white text-xl md:text-2xl font-thin leading-snug">

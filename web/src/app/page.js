@@ -80,8 +80,8 @@ export default function Home() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-neutral-100 to-neutral-300">
         <div className="relative w-16 h-16">
-          <div className="absolute inset-0 rounded-full border-4 border-pink-300 border-t-transparent animate-spin"></div>
-          <div className="absolute inset-2 rounded-full border-4 border-pink-600 border-b-transparent animate-[spin_1.2s_linear_reverse_infinite]"></div>
+          <div className="absolute inset-0 rounded-full border-4 border-brown-300 border-t-transparent animate-spin"></div>
+          <div className="absolute inset-2 rounded-full border-4 border-brown-600 border-b-transparent animate-[spin_1.2s_linear_reverse_infinite]"></div>
         </div>
       </div>
     );

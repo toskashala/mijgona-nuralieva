@@ -28,7 +28,7 @@ export default function Footer() {
           >
             Mijgona Nuralieva
           </Link>
-          <div className="flex justify-center space-x-4 mt-4 text-pink-600">
+          <div className="flex justify-center space-x-4 mt-4 text-brown-600">
             {socialLinks.map((item) => (
               <a
                 key={item.name}
@@ -50,7 +50,7 @@ export default function Footer() {
             <Link
               key={link.name}
               href={link.href}
-              className="hover:text-pink-600 transition-colors"
+              className="hover:text-brown-600 transition-colors"
             >
               {link.name}
             </Link>
@@ -61,7 +61,7 @@ export default function Footer() {
         <div className="mb-6">
           <a
             href="mailto:hello@example.com"
-            className="inline-flex items-center px-6 py-2 text-white font-medium rounded-md bg-gradient-to-r from-pink-600 to-pink-800 hover:opacity-90 transition-all duration-300"
+            className="inline-flex items-center px-6 py-2 text-white font-medium rounded-md bg-gradient-to-r from-brown-600 to-brown-800 hover:opacity-90 transition-all duration-300"
           >
             Send me an email
           </a>

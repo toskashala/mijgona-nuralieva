@@ -15,7 +15,7 @@ export default function About({
     <section id="about" className="pt-24 pb-0">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center gap-2 mb-6">
-          <div className="h-8 w-1.5 bg-gradient-to-b from-pink-400 to-pink-600 rounded-full"></div>
+          <div className="h-8 w-1.5 bg-gradient-to-b from-brown-400 to-brown-600 rounded-full"></div>
           <h2 className="text-xl md:text-3xl font-bold tracking-tight">
             {title}
           </h2>
@@ -41,7 +41,7 @@ export default function About({
                   {skills.map((skill, i) => (
                     <span
                       key={i}
-                      className="px-4 py-2 text-sm border border-pink-300 bg-pink-50 text-pink-600 rounded-full hover:bg-pink-100 transition-colors"
+                      className="px-4 py-2 text-sm border border-brown-300 bg-brown-50 text-brown-600 rounded-full hover:bg-brown-100 transition-colors"
                     >
                       {skill}
                     </span>
@@ -50,7 +50,7 @@ export default function About({
               </div>
             </div>
           </div>
-          <div className="relative rounded-3xl overflow-hidden shadow-lg border border-pink-200 h-full flex max-h-[520px]">
+          <div className="relative rounded-3xl overflow-hidden shadow-lg border border-brown-200 h-full flex max-h-[520px]">
             <Image
               src={profileImage}
               alt="Profile"

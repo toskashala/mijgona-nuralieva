@@ -64,7 +64,7 @@ export default function Hero({
           href={ctaButton?.url || "#contact"}
           className="
   px-8 py-3
-  bg-gradient-to-r from-pink-600 to-pink-800 text-white font-semibold rounded-lg
+  bg-gradient-to-r from-brown-600 to-brown-800 text-white font-semibold rounded-lg
   shadow-md hover:shadow-lg
   hover:opacity-90
   transition-all duration-300
@@ -81,9 +81,9 @@ export default function Hero({
           download
           className="
       px-8 py-3 
-      border border-pink-600 
-      text-pink-700 font-semibold rounded-lg
-      hover:bg-pink-50 hover:text-pink-900
+      border border-brown-600 
+      text-brown-700 font-semibold rounded-lg
+      hover:bg-brown-50 hover:text-brown-900
       shadow-sm hover:shadow-md
       transition-all duration-300
       flex items-center gap-2

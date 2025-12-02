@@ -66,7 +66,7 @@ export default function LanguageMap() {
   return (
     <section className="p-6 max-w-6xl mx-auto mt-3">
       <div className="flex items-center gap-2 mb-6">
-        <div className="h-8 w-1.5 bg-gradient-to-b from-pink-400 to-pink-600 rounded-full"></div>
+        <div className="h-8 w-1.5 bg-gradient-to-b from-brown-400 to-brown-600 rounded-full"></div>
         <h2 className="text-xl md:text-3xl font-bold tracking-tight">
           Languages & Countries
         </h2>
@@ -106,9 +106,9 @@ export default function LanguageMap() {
 
                       let fillColor = "#E5E7EB"; // default
                       if (livedCountries.includes(countryName))
-                        fillColor = "#fda1cbff"; // purple
+                        fillColor = "#7b5342ff"; // brown dark
                       else if (countryToLanguages[countryName])
-                        fillColor = "#DB2777"; // pink
+                        fillColor = "#caafa1ff"; // brown
 
                       return (
                         <motion.g key={geo.rsmKey}>
@@ -121,9 +121,10 @@ export default function LanguageMap() {
                               default: { outline: "none" },
                               hover: {
                                 fill: isHighlighted
-                                  ? fillColor === "#DB2777"
-                                    ? "#9D174D"
-                                    : "#f9b1d2ff"
+                                  ? fillColor === "#caafa1ff" ||
+                                    fillColor === "#7b5342ff"
+                                    ? "#ad806aff"
+                                    : fillColor
                                   : fillColor,
                                 outline: "none",
                                 cursor: isHighlighted ? "pointer" : "default",
@@ -174,7 +175,7 @@ export default function LanguageMap() {
                 {Object.keys(languageCountries).map((lang) => (
                   <span
                     key={lang}
-                    className="px-4 py-1 rounded-full bg-gradient-to-r from-pink-600 to-pink-800 text-white text-sm font-medium shadow"
+                    className="px-4 py-1 rounded-full bg-gradient-to-r from-brown-600 to-brown-800 text-white text-sm font-medium shadow"
                   >
                     {lang}
                   </span>
@@ -186,11 +187,11 @@ export default function LanguageMap() {
               <h4 className="text-xl font-medium mb-2">Map Legend:</h4>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="w-3 h-3 bg-[#fda1cbff] rounded-full mr-2"></span>
+                  <span className="w-3 h-3 bg-[#7b5342ff] rounded-full mr-2"></span>
                   <span>Countries I&apos;ve lived in</span>
                 </li>
                 <li className="flex items-center">
-                  <span className="w-3 h-3 bg-pink-600 rounded-full mr-2"></span>
+                  <span className="w-3 h-3 bg-[#caafa1ff] rounded-full mr-2"></span>
                   <span>Countries where my languages are spoken</span>
                 </li>
               </ul>
