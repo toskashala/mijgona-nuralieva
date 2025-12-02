@@ -24,7 +24,7 @@ export default function Footer() {
         <div className="mb-6">
           <Link
             href="#"
-            className="text-2xl font-bold bg-gradient-to-r from-pink-600 to-pink-800 bg-clip-text text-transparent"
+            className="text-2xl font-bold"
           >
             Mijgona Nuralieva
           </Link>

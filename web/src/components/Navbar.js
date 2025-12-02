@@ -35,7 +35,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ${scrolled ? "backdrop-blur-xl bg-black/10" : ""} ${showNavbar ? "translate-y-0" : "-translate-y-full"}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ${scrolled ? "backdrop-blur-xl bg-neutral-700/10" : ""} ${showNavbar ? "translate-y-0" : "-translate-y-full"}`}
     >
       <nav className="container mx-auto px-6 py-4 flex justify-center items-center">
         {/* Desktop Navigation */}
@@ -59,7 +59,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 text-neutral-700 hover:text-gray-800 focus:outline-none"
+          className="md:hidden p-2 hover:text-gray-800 focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >

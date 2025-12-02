@@ -21,13 +21,13 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="max-w-4xl mx-auto bg-pink-50 rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.1)] border-2 border-dashed border-pink-200 p-8 md:p-12 relative"
+      className="max-w-4xl mx-auto bg-cream-50 rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] border-2 border-dashed border-pink-100 p-8 md:p-12 relative"
     >
-      {/* Optional: cute doodles */}
-      <div className="absolute top-4 left-4 text-pink-300 text-3xl select-none pointer-events-none">
+      {/* Optional: soft doodles */}
+      <div className="absolute top-4 left-4 text-pink-200 text-3xl select-none pointer-events-none">
         💌 ✨
       </div>
-      <div className="absolute bottom-4 right-4 text-pink-300 text-3xl select-none pointer-events-none">
+      <div className="absolute bottom-4 right-4 text-pink-200 text-3xl select-none pointer-events-none">
         🌸 ✨
       </div>
 
@@ -52,9 +52,9 @@ export default function Contact() {
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center p-2 rounded-xl hover:bg-pink-100 transition-colors group"
+              className="flex items-center p-2 rounded-xl hover:bg-pink-50 transition-colors group"
             >
-              <span className="flex items-center justify-center w-9 h-9 rounded-full bg-pink-100 text-pink-600 group-hover:bg-pink-200 group-hover:text-pink-700 transition-colors">
+              <span className="flex items-center justify-center w-9 h-9 rounded-full bg-pink-50 text-pink-400 group-hover:bg-pink-100 group-hover:text-pink-500 transition-colors">
                 {item.icon}
               </span>
               <div className="ml-2">
@@ -73,7 +73,7 @@ export default function Contact() {
             </label>
             <input
               type="text"
-              className="w-full px-3 py-2 border border-pink-200 rounded-xl text-sm focus:ring-2 focus:ring-pink-300"
+              className="w-full px-3 py-2 border border-pink-100 rounded-xl text-sm focus:ring-2 focus:ring-pink-200"
               placeholder="Your name"
             />
           </div>
@@ -84,7 +84,7 @@ export default function Contact() {
             </label>
             <input
               type="email"
-              className="w-full px-3 py-2 border border-pink-200 rounded-xl text-sm focus:ring-2 focus:ring-pink-300"
+              className="w-full px-3 py-2 border border-pink-100 rounded-xl text-sm focus:ring-2 focus:ring-pink-200"
               placeholder="your.email@example.com"
             />
           </div>
@@ -95,14 +95,14 @@ export default function Contact() {
             </label>
             <textarea
               rows={3}
-              className="w-full px-3 py-2 border border-pink-200 rounded-xl text-sm focus:ring-2 focus:ring-pink-300"
+              className="w-full px-3 py-2 border border-pink-100 rounded-xl text-sm focus:ring-2 focus:ring-pink-200"
               placeholder="How can I help you?"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="w-full px-4 py-2 bg-gradient-to-r from-pink-400 to-pink-600 text-white font-handwriting text-sm rounded-xl hover:opacity-90 transition-opacity"
+            className="w-full px-4 py-2 bg-pink-600 text-white text-sm rounded-xl hover:opacity-90 transition-opacity"
           >
             Send Message
           </button>

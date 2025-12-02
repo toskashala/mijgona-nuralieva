@@ -16,7 +16,7 @@ export default function About({
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center gap-2 mb-6">
           <div className="h-8 w-1.5 bg-gradient-to-b from-pink-400 to-pink-600 rounded-full"></div>
-          <h2 className="text-xl md:text-3xl font-bold tracking-tight text-neutral-900">
+          <h2 className="text-xl md:text-3xl font-bold tracking-tight">
             {title}
           </h2>
         </div>
@@ -24,17 +24,17 @@ export default function About({
         <div className="grid md:grid-cols-2 gap-12 items-stretch">
           <div className="flex flex-col justify-between">
             <div>
-              <h3 className="text-md md:text-xl font-semibold text-neutral-900 mb-4">
+              <h3 className="text-md md:text-xl font-semibold mb-4">
                 {subtitle}
               </h3>
 
-              <div className="space-y-5 leading-relaxed text-neutral-700 mb-6">
+              <div className="space-y-5 leading-relaxed mb-6">
                 <p>{description1}</p>
                 <p>{description2}</p>
               </div>
 
               <div className="mb-8">
-                <h4 className="text-sm font-semibold text-neutral-600 mb-3 uppercase tracking-wide">
+                <h4 className="text-sm font-semibold mb-3 uppercase tracking-wide">
                   Skills
                 </h4>
                 <div className="flex flex-wrap gap-3">

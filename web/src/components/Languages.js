@@ -67,7 +67,7 @@ export default function LanguageMap() {
     <section className="p-6 max-w-6xl mx-auto mt-3">
       <div className="flex items-center gap-2 mb-6">
         <div className="h-8 w-1.5 bg-gradient-to-b from-pink-400 to-pink-600 rounded-full"></div>
-        <h2 className="text-xl md:text-3xl font-bold tracking-tight text-neutral-900">
+        <h2 className="text-xl md:text-3xl font-bold tracking-tight">
           Languages & Countries
         </h2>
       </div>
@@ -145,7 +145,7 @@ export default function LanguageMap() {
 
             {/* Tooltip */}
             {hovered && (
-              <div className="absolute top-2 left-2 bg-white px-3 py-2 rounded-md shadow-lg text-sm text-gray-800 border border-gray-200 pointer-events-none">
+              <div className="absolute top-2 left-2 bg-white px-3 py-2 rounded-md shadow-lg text-sm border border-gray-200 pointer-events-none">
                 <p className="font-semibold">{hovered}</p>
                 {countryToLanguages[hovered] && (
                   <p>Languages: {countryToLanguages[hovered].join(", ")}</p>
@@ -161,19 +161,15 @@ export default function LanguageMap() {
         {/* Right side - Text content */}
         <div className="w-full lg:w-1/2 flex flex-col">
           <div className="bg-white p-6 rounded-2xl shadow-lg h-full">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">
-              My Language Journey
-            </h3>
-            <p className="text-gray-600 mb-6">
+            <h3 className="text-xl font-semibold mb-4">My Language Journey</h3>
+            <p className="mb-6">
               I&apos;m fluent in 5 languages and have had the privilege of
               living in several countries, which has given me a deep
               appreciation for different cultures and perspectives.
             </p>
 
             <div className="mb-6">
-              <h4 className="text-xl font-medium text-gray-800 mb-3">
-                Languages I Speak:
-              </h4>
+              <h4 className="text-xl font-medium mb-3">Languages I Speak:</h4>
               <div className="flex flex-wrap gap-2">
                 {Object.keys(languageCountries).map((lang) => (
                   <span
@@ -187,10 +183,8 @@ export default function LanguageMap() {
             </div>
 
             <div>
-              <h4 className="text-xl font-medium text-gray-800 mb-2">
-                Map Legend:
-              </h4>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <h4 className="text-xl font-medium mb-2">Map Legend:</h4>
+              <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
                   <span className="w-3 h-3 bg-[#fda1cbff] rounded-full mr-2"></span>
                   <span>Countries I&apos;ve lived in</span>
