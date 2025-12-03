@@ -63,7 +63,7 @@ export default function Experience({ experiences = [] }) {
 
                 {/* Card */}
                 <div
-                  className={`p-6 rounded-2xl shadow-lg border transition relative ${
+                  className={`p-6 rounded-2xl shadow-lg border transition relative max-h-[350px] flex flex-col justify-between ${
                     current
                       ? "border-brown-600 shadow-brown-600 shadow-lg"
                       : "bg-white border-neutral-200 hover:border-neutral-700"
@@ -74,7 +74,7 @@ export default function Experience({ experiences = [] }) {
                       Current
                     </span>
                   )}
-
+                  <div className="flex flex-col">
                   <h3 className="text-xl font-semibold mb-1">{exp.title}</h3>
                   <p className="text-sm mb-2">
                     <span className="font-medium">{exp.company}</span> •{" "}
@@ -83,8 +83,7 @@ export default function Experience({ experiences = [] }) {
                   <div className="leading-relaxed text-gray-600 mt-3 text-sm">
                     <PortableText value={exp.description} components={portableTextComponents} />
                   </div>
-
-                  {/* Skills */}
+                  </div>
                   {exp.skills && exp.skills.length > 0 && (
                     <div className="mt-4 flex flex-wrap gap-2">
                       {exp.skills.map((skill, index) => (
