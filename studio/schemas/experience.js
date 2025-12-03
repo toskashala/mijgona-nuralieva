@@ -27,10 +27,30 @@ export default {
     {
       name: "description",
       title: "Job Description",
-      type: "text",
-      description: "Brief description of your role and achievements",
-      validation: (Rule) => Rule.required(),
-    },
+      type: "array",
+      of: [
+        {
+          type: "block",
+          styles: [
+            { title: "Normal", value: "normal" },
+            { title: "H2", value: "h2" },
+            { title: "H3", value: "h3" },
+          ],
+          lists: [
+            { title: "Bullet", value: "bullet" },
+            { title: "Numbered", value: "number" }
+      ],
+      marks: {
+        decorators: [
+          { title: "Strong", value: "strong" },
+          { title: "Emphasis", value: "em" }
+        ]
+      }
+    }
+  ],
+  description: "Add your job description with formatting options",
+  validation: (Rule) => Rule.required(),
+},
     {
       name: "skills",
       title: "Skills Used",
@@ -41,21 +61,8 @@ export default {
         layout: "tags",
       },
     },
-    {
-      name: "order",
-      title: "Display Order",
-      type: "number",
-      description:
-        "Order in which this experience should appear (lower numbers first)",
-      initialValue: 0,
-    },
   ],
   orderings: [
-    {
-      title: "Order",
-      name: "order",
-      by: [{ field: "order", direction: "asc" }],
-    },
     {
       title: "Most Recent First",
       name: "periodDesc",
