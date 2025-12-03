@@ -6,22 +6,22 @@ export default function Contact() {
   const socialLinks = [
     {
       icon: <FiMail className="w-5 h-5" />,
-      url: "mailto:hello@example.com",
+      url: "mailto:mijgona.nuralieva07@gmail.com",
       label: "Email",
-      text: "hello@example.com",
+      text: "mijgona.nuralieva07",
     },
     {
       icon: <FiLinkedin className="w-5 h-5" />,
-      url: "https://linkedin.com",
+      url: "https://www.linkedin.com/in/mijgona-nuralieva-%E7%B1%B3%E5%90%89-3a6a7b17a/",
       label: "LinkedIn",
-      text: "linkedin.com/in/yourprofile",
+      text: "mijgona-nuralieva",
     },
   ];
 
   return (
     <section
       id="contact"
-      className="max-w-4xl mx-auto bg-cream-50 rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] border-2 border-dashed border-brown-100 p-8 md:p-12 relative"
+      className="max-w-4xl mx-auto rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] border-2 border-dashed border-brown-100 p-8 md:p-12 relative"
     >
       {/* Optional: soft doodles */}
       <div className="absolute top-4 left-4 text-brown-200 text-3xl select-none pointer-events-none">
