@@ -1,6 +1,11 @@
 "use client";
 
+import SectionHeader from "./SectionHeader";
+
 export default function Experience({ experiences = [] }) {
+  if (!experiences || experiences.length === 0) {
+    return null;
+  }
   // Split into two halves
   const left = experiences.filter((_, i) => i % 2 === 0);
   const right = experiences.filter((_, i) => i % 2 === 1);
@@ -9,10 +14,7 @@ export default function Experience({ experiences = [] }) {
     <section id="experience" className="pt-0 pb-24 relative">
       <div className="max-w-6xl mx-auto px-4">
         {/* Title */}
-        <div className="flex items-center gap-2 mb-10">
-          <div className="h-8 w-1.5 bg-gradient-to-b from-brown-400 to-brown-600 rounded-full" />
-          <h2 className="text-xl md:text-3xl font-bold">Experience</h2>
-        </div>
+        <SectionHeader title="Experience" />
 
         <div className="grid md:grid-cols-2 gap-10 relative">
           {/* LEFT TIMELINE */}

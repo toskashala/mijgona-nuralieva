@@ -1,7 +1,6 @@
 "use client";
-
+import SectionHeader from "./SectionHeader";
 import Image from "next/image";
-import Languages from "./Languages";
 
 export default function About({
   title,
@@ -15,12 +14,7 @@ export default function About({
   return (
     <section id="about" className="pt-24 pb-0">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex items-center gap-2 mb-6">
-          <div className="h-8 w-1.5 bg-gradient-to-b from-brown-400 to-brown-600 rounded-full"></div>
-          <h2 className="text-xl md:text-3xl font-bold tracking-tight">
-            {title}
-          </h2>
-        </div>
+        <SectionHeader title={title} />
 
         <div className="grid md:grid-cols-2 gap-12 items-stretch">
           <div className="flex flex-col justify-between">
@@ -64,7 +58,6 @@ export default function About({
           </div>
         </div>
       </div>
-      <Languages />
     </section>
   );
 }

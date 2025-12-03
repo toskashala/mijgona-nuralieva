@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import { motion } from "framer-motion";
+import SectionHeader from "./SectionHeader";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
@@ -64,13 +65,8 @@ export default function LanguageMap() {
   ];
 
   return (
-    <section className="p-6 max-w-6xl mx-auto mt-3">
-      <div className="flex items-center gap-2 mb-6">
-        <div className="h-8 w-1.5 bg-gradient-to-b from-brown-400 to-brown-600 rounded-full"></div>
-        <h2 className="text-xl md:text-3xl font-bold tracking-tight">
-          Languages & Countries
-        </h2>
-      </div>
+    <section className="p-10 max-w-6xl mx-auto mt-3">
+      <SectionHeader title="Languages & Countries" />
 
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Left side - Map */}

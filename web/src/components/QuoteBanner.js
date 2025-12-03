@@ -1,6 +1,9 @@
 "use client";
 
 export default function QuoteBanner({ quote, author }) {
+   if (!quote || !author) {
+    return null;
+  }
   return (
     <section className="relative w-full py-12 bg-cream-50 my-12">
       <div className="max-w-3xl mx-auto px-6 text-center text-brown-900">

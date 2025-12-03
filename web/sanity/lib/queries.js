@@ -27,6 +27,14 @@ export const experiencesQuery = `*[_type == "experience"] | order(order asc) {
   skills
 }`;
 
+export const educationQuery = `*[_type == "education"] | order(order asc) {
+  title,
+  school,
+  location,
+  period,
+  order
+}`;
+
 export const quoteBannerQuery = `*[_type == "quoteBanner" && isActive == true][0] {
   quote,
   author
