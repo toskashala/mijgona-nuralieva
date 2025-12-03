@@ -22,10 +22,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-12 text-center">
         {/* Name & Social */}
         <div className="mb-6">
-          <Link
-            href="#"
-            className="text-2xl font-bold"
-          >
+          <Link href="#" className="text-2xl font-bold">
             Mijgona Nuralieva
           </Link>
           <div className="flex justify-center space-x-4 mt-4 text-brown-600">

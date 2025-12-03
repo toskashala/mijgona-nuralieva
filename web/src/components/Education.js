@@ -1,15 +1,16 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import SectionHeader from './SectionHeader';
+import React from "react";
+import { motion } from "framer-motion";
+import SectionHeader from "./SectionHeader";
 
 export default function Education({ education = [] }) {
   if (!education || education.length === 0) return null;
 
-  const sortedEducation = [...education].sort((a, b) => (a.order || 0) - (b.order || 0));
+  const sortedEducation = [...education].sort(
+    (a, b) => (a.order || 0) - (b.order || 0),
+  );
 
   return (
     <section className="py-6 flex flex-col items-center" id="education">
-
       <SectionHeader title="Education & Diplomas" />
 
       <div className="relative w-full max-w-5xl px-4">
@@ -28,7 +29,9 @@ export default function Education({ education = [] }) {
             >
               {/* Left content */}
               <div className="flex flex-col items-end w-1/2 pr-8 justify-center text-right">
-                <h3 className="text-xl font-semibold text-brown-900">{item.title}</h3>
+                <h3 className="text-xl font-semibold text-brown-900">
+                  {item.title}
+                </h3>
                 <p className="text-brown-700">{item.school}</p>
               </div>
 
@@ -39,7 +42,7 @@ export default function Education({ education = [] }) {
 
               {/* Right content */}
               <div className="flex flex-col items-start w-1/2 pl-8 justify-center">
-                <span className="bg-brown-100 text-brown-800 text-xs font-semibold px-2 py-0.5 rounded-full">
+                <span className="bg-cream-50 border border-brown-600 text-brown-800 text-xs font-semibold px-2 py-0.5 rounded-full">
                   {item.location}
                 </span>
                 <span className="text-brown-500 mt-1">{item.period}</span>
