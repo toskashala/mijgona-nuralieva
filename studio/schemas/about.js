@@ -43,6 +43,13 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "description3",
+      title: "Third Paragraph",
+      type: "text",
+      description: "Third paragraph of your about section",
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "skills",
       title: "Skills",
       type: "array",

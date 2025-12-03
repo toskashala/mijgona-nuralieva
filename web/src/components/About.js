@@ -8,6 +8,7 @@ export default function About({
   subtitle,
   description1,
   description2,
+  description3,
   skills = [],
   profileImage,
 }) {
@@ -31,6 +32,7 @@ export default function About({
               <div className="space-y-5 leading-relaxed mb-6">
                 <p>{description1}</p>
                 <p>{description2}</p>
+                <p>{description3}</p>
               </div>
 
               <div className="mb-8">

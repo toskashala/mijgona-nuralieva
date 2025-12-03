@@ -14,6 +14,7 @@ export const aboutQuery = `*[_type == "about"][0] {
   subtitle,
   description1,
   description2,
+  description3,
   "profileImage": profileImage.asset->url,
   skills
 }`;
