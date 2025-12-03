@@ -63,7 +63,7 @@ export default function Experience({ experiences = [] }) {
 
                 {/* Card */}
                 <div
-                  className={`p-6 rounded-2xl shadow-lg border transition overflow-hidden relative md:h-[350px] flex flex-col justify-between ${
+                  className={`p-6 rounded-2xl shadow-lg border transition relative md:h-[350px] flex flex-col justify-between ${
                     current
                       ? "border-brown-600 shadow-brown-600 shadow-lg"
                       : "bg-white border-neutral-200 hover:border-neutral-700"
@@ -74,7 +74,7 @@ export default function Experience({ experiences = [] }) {
                       Current
                     </span>
                   )}
-                  <div className="flex flex-col">
+                  <div className="flex flex-col overflow-hidden">
                   <h3 className="text-xl font-semibold mb-1">{exp.title}</h3>
                   <p className="text-sm mb-2">
                     <span className="font-medium">{exp.company}</span> •{" "}
