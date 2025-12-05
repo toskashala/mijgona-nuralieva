@@ -65,12 +65,12 @@ export default function LanguageMap() {
   ];
 
   return (
-    <section className="p-10 max-w-6xl mx-auto mt-3">
+    <section className="pt-12 md:pt-24 max-w-6xl mx-auto pb-0">
       <SectionHeader title="Languages & Countries" />
 
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Left side - Map */}
-        <div className="w-full lg:w-1/2">
+        <div className="w-full mx-auto max-w-[18rem] md:max-w-full lg:w-1/2">
           <div className="border rounded-2xl shadow-lg p-4 bg-white relative h-full">
             {error ? (
               <div className="h-96 flex items-center justify-center text-red-500">
@@ -143,12 +143,12 @@ export default function LanguageMap() {
             {/* Tooltip */}
             {hovered && (
               <div className="absolute top-2 left-2 bg-white px-3 py-2 rounded-md shadow-lg text-sm border border-gray-200 pointer-events-none">
-                <p className="font-semibold">{hovered}</p>
+                <p className="text-sm font-semibold">{hovered}</p>
                 {countryToLanguages[hovered] && (
-                  <p>Languages: {countryToLanguages[hovered].join(", ")}</p>
+                  <p className="text-xs">Languages: {countryToLanguages[hovered].join(", ")}</p>
                 )}
                 {livedCountries.includes(hovered) && (
-                  <p>I&apos;ve lived here</p>
+                  <p className="text-xs">I&apos;ve lived here</p>
                 )}
               </div>
             )}
@@ -157,8 +157,8 @@ export default function LanguageMap() {
 
         {/* Right side - Text content */}
         <div className="w-full lg:w-1/2 flex flex-col">
-          <div className="bg-white p-6 rounded-2xl shadow-lg h-full">
-            <h3 className="text-xl font-semibold mb-4">My Language Journey</h3>
+          <div className="bg-white pb-6 px-6 md:p-6 rounded-2xl shadow-lg h-full">
+            <h3 className="text-base md:text-xl font-semibold mb-4">My Language Journey</h3>
             <p className="mb-6">
               I&apos;m fluent in 5 languages and have had the privilege of
               living in several countries, which has given me a deep
@@ -166,12 +166,12 @@ export default function LanguageMap() {
             </p>
 
             <div className="mb-6">
-              <h4 className="text-xl font-medium mb-3">Languages I Speak:</h4>
+              <h4 className="text-base md:text-xl font-medium mb-3">Languages I Speak:</h4>
               <div className="flex flex-wrap gap-2">
                 {Object.keys(languageCountries).map((lang) => (
                   <span
                     key={lang}
-                    className="px-4 py-1 rounded-full bg-gradient-to-r from-brown-600 to-brown-800 text-white text-sm font-medium shadow"
+                    className="px-4 py-1 rounded-full bg-gradient-to-r from-brown-600 to-brown-800 text-white text-xs md:text-sm font-medium shadow"
                   >
                     {lang}
                   </span>
@@ -180,7 +180,7 @@ export default function LanguageMap() {
             </div>
 
             <div>
-              <h4 className="text-xl font-medium mb-2">Map Legend:</h4>
+              <h4 className="text-base md:text-xl font-medium mb-2">Map Legend:</h4>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
                   <span className="w-3 h-3 bg-[#7b5342ff] rounded-full mr-2"></span>

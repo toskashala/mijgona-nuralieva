@@ -72,7 +72,7 @@ h4 {
 }
 
 p {
-  @apply text-gray-600 leading-relaxed;
+  @apply text-gray-600 leading-relaxed text-sm md:text-base;
 }
 
 /* Buttons */

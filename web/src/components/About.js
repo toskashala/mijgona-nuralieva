@@ -12,14 +12,14 @@ export default function About({
   profileImage,
 }) {
   return (
-    <section id="about" className="pt-24 pb-0">
+    <section id="about" className="pt-8 md:pt-12 pb-0">
       <div className="max-w-6xl mx-auto px-4">
         <SectionHeader title={title} />
 
-        <div className="grid md:grid-cols-2 gap-12 items-stretch">
+        <div className="grid md:grid-cols-2 gap-2 md:gap-12 items-stretch">
           <div className="flex flex-col justify-between">
             <div>
-              <h3 className="text-md md:text-xl font-semibold mb-4">
+              <h3 className="text-lg md:text-xl font-semibold mb-4">
                 {subtitle}
               </h3>
 
@@ -37,7 +37,7 @@ export default function About({
                   {skills.map((skill, i) => (
                     <span
                       key={i}
-                      className="px-4 py-2 text-sm border border-brown-300 bg-brown-50 text-brown-600 rounded-full hover:bg-brown-100 transition-colors"
+                      className="px-4 py-2 text-xs md:text-sm border border-brown-300 bg-brown-50 text-brown-600 rounded-full hover:bg-brown-100 transition-colors"
                     >
                       {skill}
                     </span>
