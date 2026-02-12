@@ -104,25 +104,6 @@ export default function Hero({
           <FiArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
           Contact Me
         </a>
-
-        {/* Download Button */}
-        <a
-          href="/resume.pdf"
-          download
-          className="
-            px-6 py-2 
-            sm:px-7 sm:py-3
-            border border-brown-600 
-            text-brown-700 font-semibold rounded-lg
-            hover:bg-brown-50 hover:text-brown-900
-            shadow-sm hover:shadow-md
-            transition-all duration-300
-            flex items-center gap-2 text-sm sm:text-base
-          "
-        >
-          <FiDownload className="w-4 h-4 sm:w-5 sm:h-5" />
-          Download CV
-        </a>
       </div>
 
       {/* SIDE ARROW */}
