@@ -7,8 +7,8 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { name: "LinkedIn", url: "https://linkedin.com", icon: <FiLinkedin /> },
-    { name: "Email", url: "mailto:hello@example.com", icon: <FiMail /> },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/mijgona-nuralieva-%E7%B1%B3%E5%90%89-3a6a7b17a/", icon: <FiLinkedin /> },
+    { name: "Email", url: "mailto:mijgona.nuralieva07@gmail.com", icon: <FiMail /> },
   ];
 
   const navLinks = [
