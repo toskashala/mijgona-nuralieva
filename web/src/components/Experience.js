@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { PortableText } from "@portabletext/react";
 import SectionHeader from "./SectionHeader";
 import { motion } from "framer-motion";
@@ -6,39 +6,49 @@ import { motion } from "framer-motion";
 export default function Experience({ experiences = [] }) {
   if (!experiences || experiences.length === 0) return null;
 
-  const isCurrent = (period) => period.trim().endsWith("Present");
+  const isCurrent = (period) => period?.trim?.().endsWith("Present") ?? false;
 
-  const sortedExperiences = [
-    ...experiences.filter((exp) => isCurrent(exp.period)),
-    ...experiences.filter((exp) => !isCurrent(exp.period)),
-  ];
+  const sortedExperiences = useMemo(
+    () => [
+      ...experiences.filter((exp) => isCurrent(exp.period)),
+      ...experiences.filter((exp) => !isCurrent(exp.period)),
+    ],
+    [experiences]
+  );
 
-  const portableTextComponents = {
-    list: {
-      bullet: ({ children }) => <ul className="list-disc pl-5 my-2 space-y-1">{children}</ul>,
-      number: ({ children }) => <ol className="list-decimal pl-5 my-2 space-y-1">{children}</ol>,
-    },
-    listItem: {
-      bullet: ({ children }) => <li className="pl-2">{children}</li>,
-    },
-    block: {
-      normal: ({ children }) => <p className="mb-2 text-sm sm:text-base">{children}</p>,
-    },
-  };
+  const portableTextComponents = useMemo(
+    () => ({
+      list: {
+        bullet: ({ children }) => <ul className="list-disc pl-5 my-2 space-y-1">{children}</ul>,
+        number: ({ children }) => <ol className="list-decimal pl-5 my-2 space-y-1">{children}</ol>,
+      },
+      listItem: {
+        bullet: ({ children }) => <li className="pl-2">{children}</li>,
+        number: ({ children }) => <li className="pl-2">{children}</li>,
+      },
+      block: {
+        normal: ({ children }) => <p className="mb-2 text-sm sm:text-base">{children}</p>,
+        h2: ({ children }) => <h4 className="text-base font-semibold mt-3 mb-1">{children}</h4>,
+        h3: ({ children }) => <h5 className="text-sm font-semibold mt-2 mb-1">{children}</h5>,
+      },
+      unknownBlockStyle: ({ children }) => <p className="mb-2 text-sm sm:text-base">{children}</p>,
+    }),
+    []
+  );
 
   return (
     <section id="experience" className="pt-12 md:pt-14 pb-0 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4">
         <SectionHeader title="Experience" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="columns-1 md:columns-2 gap-10 space-y-10">
           {sortedExperiences.map((exp, i) => {
             const current = isCurrent(exp.period);
 
             return (
               <motion.div
                 key={i}
-                className="relative pl-10 md:pl-14"
+                className="relative pl-10 md:pl-14 break-inside-avoid mb-10"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -56,7 +66,7 @@ export default function Experience({ experiences = [] }) {
 
                 {/* Card */}
                 <div
-                  className={`p-4 md:p-6 rounded-xl shadow-md border flex flex-col justify-between relative ${
+                  className={`p-4 md:p-6 rounded-xl shadow-md border flex flex-col justify-start relative max-w-3xl ${
                     current
                       ? "border-brown-600 shadow-brown-300"
                       : "bg-white border-neutral-200 hover:border-neutral-400"
@@ -73,7 +83,16 @@ export default function Experience({ experiences = [] }) {
                       <span className="font-medium">{exp.company}</span> • {exp.period}
                     </p>
                     <div className="text-gray-600 mt-2 text-xs sm:text-sm leading-snug">
-                      <PortableText value={exp.description} components={portableTextComponents} />
+                      {typeof exp.description === "string" ? (
+                        <p className="mb-2 whitespace-pre-line">
+                          {exp.description}
+                        </p>
+                      ) : Array.isArray(exp.description) && exp.description.length > 0 ? (
+                        <PortableText
+                          value={exp.description}
+                          components={portableTextComponents}
+                        />
+                      ) : null}
                     </div>
                   </div>
 

@@ -38,19 +38,19 @@ export default {
           ],
           lists: [
             { title: "Bullet", value: "bullet" },
-            { title: "Numbered", value: "number" }
+            { title: "Numbered", value: "number" },
+          ],
+          marks: {
+            decorators: [
+              { title: "Strong", value: "strong" },
+              { title: "Emphasis", value: "em" },
+            ],
+          },
+        },
       ],
-      marks: {
-        decorators: [
-          { title: "Strong", value: "strong" },
-          { title: "Emphasis", value: "em" }
-        ]
-      }
-    }
-  ],
-  description: "Add your job description with formatting options",
-  validation: (Rule) => Rule.required(),
-},
+      description: "Add your job description with formatting options",
+      validation: (Rule) => Rule.required(),
+    },
     {
       name: "skills",
       title: "Skills Used",

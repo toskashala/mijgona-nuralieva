@@ -64,6 +64,9 @@ export default function Home() {
               client.fetch(educationQuery),
             ]);
 
+          console.log("Experiences data:", experiencesData);
+          console.log("First experience description:", experiencesData?.[0]?.description);
+
           setData({
             hero: heroData,
             about: aboutData,
